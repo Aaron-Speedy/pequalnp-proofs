@@ -5,9 +5,11 @@
 **November 25, 2026, Central time.** Two contributions from this effort are
 public. One solves a swarm assignment outright: nine-bit majority fits in 30
 gates. The other proves a reduction: symmetry breaks a Petersen-graph assignment
-into three smaller obligations. Both pull requests are open. The project checker
-has accepted the Petersen reduction. At the time of this memo the majority
-submission had passed our Lean check and was awaiting the project’s verdict.
+into three smaller obligations.
+The project checker accepted the Petersen reduction; that PR is still open.
+The majority proof passed Lean locally. The swarm closed our PR after merging
+another contributor’s earlier submission for the same step.
+[First merged majority proof](https://github.com/open-goat/pequalnp-proofs/pull/22806)
 
 **Why these problems matter.** P versus NP asks whether every decision problem
 whose yes answers can be verified in polynomial time can also be solved in
