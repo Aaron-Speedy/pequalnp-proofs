@@ -1,0 +1,4 @@
+points (0, 1) gates 5 core variables 5 tests 8 prepaid ORs 4
+solver 10
+circuit [(True, 3, 4), (True, 2, 4), (False, 1, 5), (False, 0, 6), (True, 7, 8)]
+all rows verified

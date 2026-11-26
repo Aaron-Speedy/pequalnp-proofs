@@ -1,0 +1,22 @@
+../.pnp/StarFast9738.lean:70:70: error: unsolved goals
+x : Fin 25 → Bool
+i : Fin 25
+⊢ [x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8, x 9, x 10, x 11, x 12, x 13, x 14, x 15, x 16, x 17, x 18, x 19, x 20,
+        x 21, x 22, x 23, x 24][↑i] =
+    x i
+../.pnp/StarFast9738.lean:232:14: warning: Possibly looping simp theorem: `Bool.and_or_distrib_left`
+
+Note: Possibly caused by: `Bool.or_and_distrib_right` and `Bool.or_assoc`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+../.pnp/StarFast9738.lean:232:39: warning: Possibly looping simp theorem: `Bool.or_and_distrib_right`
+
+Note: Possibly caused by: `Bool.and_or_distrib_left` and `Bool.or_assoc`
+
+Hint: You can disable a simp theorem from the default simp set by passing `- theoremName` to `simp`.
+../.pnp/StarFast9738.lean:232:2: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+../.pnp/StarFast9738.lean:240:54: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+'PEqualNP.Outside.Graph9738.exactEdges' depends on axioms: [propext, sorryAx, Quot.sound]

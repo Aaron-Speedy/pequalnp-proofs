@@ -1,0 +1,8 @@
+../.pnp/checked-prefix.lean:93:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [ClauseSat] at bad
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_pcx_166_aux.criticalCuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_pcx_166_aux.Prefix.prefixCounts' depends on axioms: [propext, Classical.choice, Quot.sound]

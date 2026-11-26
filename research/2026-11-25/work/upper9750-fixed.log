@@ -1,0 +1,7 @@
+../.pnp/Upper9750.lean:30:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/Upper9750.lean:30:2: warning: Unused tactic linter: there are no goals left for `all_goals ac_rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'PEqualNP.Outside.L_meta_9750_aux.starEval' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,74 @@
+import Lift9738
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.Outside.MonoPin9738
+namespace PEqualNP.Outside.Plane9738
+def E : List (ℕ × ℕ) := EDGE_LIST
+def I (p l : Fin 13) : Prop :=
+  l.val % 13=p.val ∨ (l.val+1)%13=p.val ∨ (l.val+3)%13=p.val ∨ (l.val+9)%13=p.val
+instance (p l : Fin 13) : Decidable (I p l) := by unfold I; infer_instance
+theorem inc (p l : Fin 13) : I p l ↔
+    ∃ d : ℕ, d ∈ ({0,1,3,9} : Finset ℕ) ∧ (l.val+d)%13=p.val := by
+  simp [I,Finset.mem_insert,Finset.mem_singleton]
+  aesop
+def pt (p : Fin 13) : Fin 25 := ⟨p.val,by omega⟩
+def ln (l : Fin 13) : Fin 25 := ⟨12+l.val,by omega⟩
+def pp (u : Fin 25) := Fin.ofNat 13 u.val
+def ll (v : Fin 25) := Fin.ofNat 13 (v.val-12)
+theorem oldSound : ∀ u v : Fin 25, (u.val,v.val) ∈ E →
+    I (pp u) (ll v) ∧ emb u = Fin.castAdd 13 (pp u) ∧ emb v = Fin.natAdd 13 (ll v) := by decide +kernel
+theorem oldComplete : ∀ p l : Fin 13, I p l → l ≠ 0 →
+    ((pt p).val,(ln l).val) ∈ E ∧ emb (pt p) = Fin.castAdd 13 p ∧ emb (ln l) = Fin.natAdd 13 l := by decide +kernel
+theorem missing : ∀ p : Fin 13, I p 0 ↔ p=0 ∨ p=1 ∨ p=3 ∨ p=9 := by decide
+def GraphOK (C : Circuit) := ∀ x : Fin 25 → Bool, C.eval (List.ofFn x) = true ↔
+  ∃ u v : Fin 25, (u.val,v.val) ∈ E ∧ x u = true ∧ x v = true
+def B (C : Circuit) := relabel 25 26 emb C
+theorem bound_out (C : Circuit) (ok : GraphOK C) : (B C).output < 26+(B C).size := by
+  let x : Fin 26 → Bool := fun _ => true
+  have trueVal : (B C).eval (List.ofFn x) = true :=
+    (lift_eval C x).trans ((ok _).mpr ⟨0,16,by decide,rfl,rfl⟩)
+  by_contra! h
+  change ((run (B C).gates (List.ofFn x)).getD (B C).output false) = true at trueVal
+  rw [List.getD_eq_default _ _ (by simpa [run_length,Circuit.size] using h)] at trueVal
+  contradiction
+theorem full_eval (C : Circuit) (ok : GraphOK C) (x : Fin 26 → Bool) :
+    (ext (B C)).eval (List.ofFn x) = true ↔
+    ∃ p l, I p l ∧ x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true := by
+  rw [ext_eval _ (bound_out C ok),show (B C).eval (List.ofFn x) = _ from lift_eval C x]
+  simp only [Bool.or_eq_true,Bool.and_eq_true,ok,Function.comp_apply]
+  constructor
+  · rintro (⟨u,v,edge,hu,hv⟩ | ⟨line,point⟩)
+    · obtain ⟨rel,a,b⟩ := oldSound u v edge
+      exact ⟨pp u,ll v,rel,a ▸ hu,b ▸ hv⟩
+    · rcases point with (h|h)|(h|h)
+      · exact ⟨0,0,by decide,h,line⟩
+      · exact ⟨1,0,by decide,h,line⟩
+      · exact ⟨3,0,by decide,h,line⟩
+      · exact ⟨9,0,by decide,h,line⟩
+  · rintro ⟨p,l,rel,hp,hl⟩
+    by_cases lz : l=0
+    · subst l
+      right; refine ⟨hl,?_⟩
+      rcases (missing p).mp rel with rfl|rfl|rfl|rfl
+      · exact Or.inl (Or.inl hp)
+      · exact Or.inl (Or.inr hp)
+      · exact Or.inr (Or.inl hp)
+      · exact Or.inr (Or.inr hp)
+    · obtain ⟨edge,a,b⟩ := oldComplete p l rel lz
+      exact Or.inl ⟨pt p,ln l,edge,a.symm ▸ hp,b.symm ▸ hl⟩
+
+theorem sharedLower (known : FULL_STATEMENT) (C : Circuit) (mono : Monotone2 C)
+    (ok : GraphOK C) (deg : HasLineDegree 25 (marks 25) C 1) : 59 ≤ C.size := by
+  by_contra! short
+  apply known
+  have sz : (B C).size = C.size := by simp [B,relabel,Circuit.size]
+  refine ⟨ext (B C),ext_mono _ (lift_mono C mono),by rw [ext_size,sz]; omega,?_,?_,?_⟩
+  · change (ext (B C)).lineDeg 26 (marks 26) ≤ 1
+    rw [ext_deg _ (bound_out C ok),show (B C).lineDeg 26 (marks 26) = _ from lifted_degree C]
+    exact max_le deg le_rfl
+  · intro x _ hx
+    obtain ⟨p,l,i,hp,hl⟩ := (full_eval C ok x).mp hx
+    exact ⟨p,l,(inc p l).mp i,hp,hl⟩
+  · intro p l rel
+    apply (full_eval C ok _).mpr
+    exact ⟨p,l,(inc p l).mpr rel,by simp,by simp⟩
+end PEqualNP.Outside.Plane9738
+#print axioms PEqualNP.Outside.Plane9738.sharedLower

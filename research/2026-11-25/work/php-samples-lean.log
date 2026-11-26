@@ -1,0 +1,137 @@
+PEqualNP/Outside/L_pcx_166.lean:93:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [ClauseSat] at bad
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+PEqualNP/Outside/L_pcx_166.lean:183:30: error(lean.unknownIdentifier): Unknown identifier `R`
+PEqualNP/Outside/L_pcx_166.lean:198:12: error(lean.unknownIdentifier): Unknown identifier `Clause`
+PEqualNP/Outside/L_pcx_166.lean:216:15: error(lean.unknownIdentifier): Unknown identifier `PHP`
+PEqualNP/Outside/L_pcx_166.lean:216:25: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:219:39: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:223:25: error(lean.unknownIdentifier): Unknown identifier `PHP`
+PEqualNP/Outside/L_pcx_166.lean:223:45: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:224:36: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:225:38: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:229:10: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:229:31: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:229:48: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:281:27: error: Function expected at
+  PHP
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  5
+
+Hint: The identifier `PHP` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:281:47: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:282:38: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:283:45: error: Function expected at
+  ClauseSat
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  a
+
+Hint: The identifier `ClauseSat` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:286:13: error: Function expected at
+  h
+but this term has type
+  Controls π U S
+
+Note: Expected a function because this term is being applied to the argument
+  U'
+PEqualNP/Outside/L_pcx_166.lean:283:62: error: unsolved goals
+x✝¹ : Sort u_1
+PHP : x✝¹
+x✝ : Sort u_2
+ClauseSat : x✝
+π : List C
+U : Finset C
+S : Finset V
+v : V
+P N R : C
+h : Controls π U S
+hP : P ∈ π
+hN : N ∈ π
+hp : (v, true) ∈ P
+hn : (v, false) ∈ N
+hR : R = Finset.erase P (v, true) ∪ Finset.erase N (v, false)
+U' : Finset C
+S' : Finset V
+hU : U ⊆ U'
+hS : S ⊆ S'
+hmark : Coll N → N ∈ U'
+hpivot : ¬Coll N → v ∈ S'
+a : V → Bool
+hrows : (B : C) → B ∈ ?m.44 → ¬Coll B → sorry
+hcols : (B : C) → B ∈ U' → Coll B → Hits S' B → sorry
+Q : C
+hQ : Q ∈ R :: π
+hnQ : ¬Coll Q
+hneg : NegsIn S' Q
+⊢ sorry
+PEqualNP/Outside/L_pcx_166.lean:301:34: error: Function expected at
+  IsDerivation
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (PHP 5 4)
+
+Hint: The identifier `IsDerivation` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:353:25: error(lean.unknownIdentifier): Unknown identifier `PHP`
+PEqualNP/Outside/L_pcx_166.lean:353:42: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:353:61: error(lean.unknownIdentifier): Unknown identifier `ClauseSat`
+PEqualNP/Outside/L_pcx_166.lean:357:48: error: Function expected at
+  IsDerivation
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (PHP 5 4)
+
+Hint: The identifier `IsDerivation` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+PEqualNP/Outside/L_pcx_166.lean:389:8: warning: declaration uses `sorry`

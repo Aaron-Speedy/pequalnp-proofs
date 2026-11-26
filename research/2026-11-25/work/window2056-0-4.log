@@ -1,0 +1,27 @@
+mode 0 gates 64 positive 52 maximal negative 704
+root 29 checked 1
+root 33 checked 2
+root 37 checked 3
+root 41 checked 4
+root 45 checked 5
+root 49 checked 6
+root 53 checked 7
+root 57 checked 8
+root 61 checked 9
+root 65 checked 10
+root 69 checked 11
+root 73 checked 12
+root 77 checked 13
+root 78 checked 19
+root 79 checked 25
+root 80 checked 31
+root 81 checked 37
+root 82 checked 43
+root 83 checked 49
+root 84 checked 59
+root 85 checked 69
+root 86 checked 79
+root 87 checked 93
+root 88 checked 103
+root 89 checked 116
+exhausted 116 windows of 4 gates

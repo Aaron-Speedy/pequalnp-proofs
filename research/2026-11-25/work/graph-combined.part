@@ -1,0 +1,14 @@
+theorem combinedGraphBound {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (s : Finset (Fin n)) (indep : ∀ u ∈ s, ∀ v ∈ s, ¬ G.Adj u v)
+    (maximal : ∀ v ∉ s, ∃ u ∈ s, G.Adj u v) (a : ℕ)
+    (many : 2 ^ a < (maximalIndependentFamily G).card) :
+    sᶜ.card + a ≤ C.size := by
+  have hor := independentComplementOr G C ok correct s indep maximal
+  have hand := maximalIndependentCount G C ok correct
+  have lt : a < andCost C.gates := (Nat.pow_lt_pow_iff_right (by decide : 1 < 2)).mp (many.trans_le hand)
+  have total := gateCounts C.gates
+  change _ ≤ C.gates.length
+  omega

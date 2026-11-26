@@ -1,0 +1,7 @@
+StarBudget5208.impossible._native.bv_decide.ax_1_5 :
+  Std.Tactic.BVDecide.Reflect.verifyBVExpr StarBudget5208.impossible._expr_def_1_1
+      StarBudget5208.impossible._cert_def_1_1 =
+    true
+axiom StarBudget5208.impossible._native.bv_decide.ax_1_5 : Std.Tactic.BVDecide.Reflect.verifyBVExpr
+    StarBudget5208.impossible._expr_def_1_1 StarBudget5208.impossible._cert_def_1_1 =
+  true

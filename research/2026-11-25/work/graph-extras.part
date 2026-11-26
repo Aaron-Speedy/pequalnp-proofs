@@ -1,0 +1,40 @@
+theorem gateCounts (gs : List Gate) : andCost gs + orCost gs ≤ gs.length := by
+  induction gs with
+  | nil => decide
+  | cons g gs ih => cases h : g.op <;> simp [andCost,orCost,h] <;> omega
+
+def triangleFalse : Finset (Fin 6) := {3,4,5}
+
+theorem triangleAtLeastFour (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ r, C.eval (List.ofFn (triangleSample r)) = decide (r ∈ triangleTable)) :
+    4 ≤ C.size := by
+  have pos := triangleOrCount C ok correct
+  have tested := circuitAndSearch triangleSample C ok
+  have opposite : ∀ r : Fin 6, (!decide (r ∈ triangleTable)) = decide (r ∈ triangleFalse) := by
+    decide +kernel
+  have eq : (Finset.univ.filter (fun r => !C.eval (List.ofFn (triangleSample r)))) = triangleFalse := by
+    ext r
+    simp only [Finset.mem_filter,Finset.mem_univ,true_and,correct,opposite,decide_eq_true_eq]
+  rw [eq] at tested
+  have no : searchOr (inputBank (fun r i => !(triangleSample r i))) triangleFalse 1 = false := by
+    decide +kernel
+  have neg := searchLower no tested
+  have total := gateCounts C.gates
+  change 4 ≤ C.gates.length
+  omega
+
+theorem smallSound {α : Type} [Fintype α] [DecidableEq α] (target : Finset α)
+    (bank : Finset (Finset α)) (k : ℕ) (yes : smallSearch bank target k = true) :
+    Reach bank target k := by
+  induction k generalizing bank with
+  | zero => exact hullEqFree.mp (of_decide_eq_true yes)
+  | succ k ih =>
+    simp only [smallSearch,Bool.or_eq_true,decide_eq_true_eq] at yes
+    rcases yes with stop | ⟨a,_,b,_,next⟩
+    · exact Or.inl (hullEqFree.mp stop)
+    · exact Or.inr ⟨_,_,hullFree bank a,hullFree bank b,ih _ next⟩
+
+theorem smallExact {α : Type} [Fintype α] [DecidableEq α] (target : Finset α)
+    (bank : Finset (Finset α)) (k : ℕ) : smallSearch bank target k = true ↔ Reach bank target k :=
+  ⟨smallSound target bank k, smallComplete target k (fun w hw =>
+    ⟨w,meetOfMember hw,Finset.Subset.refl _,Finset.inter_subset_right⟩)⟩

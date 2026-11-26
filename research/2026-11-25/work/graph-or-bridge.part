@@ -1,0 +1,115 @@
+open PEqualNP.CircuitLowerBounds
+
+theorem meetOfMember {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {w : Finset α} (hw : w ∈ bank) : FreeMeet bank w := by
+  exact ⟨{w}, by simpa using hw, by simp⟩
+
+theorem widenMeet {α : Type} {bank bank' : Finset (Finset α)} {w : Finset α}
+    (sub : bank ⊆ bank') (h : FreeMeet bank w) : FreeMeet bank' w := by
+  obtain ⟨ws, hws, eq⟩ := h
+  exact ⟨ws, hws.trans sub, eq⟩
+
+theorem interMeet {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {a b : Finset α} (ha : FreeMeet bank a) (hb : FreeMeet bank b) :
+    FreeMeet bank (a ∩ b) := by
+  obtain ⟨as,sa,ea⟩ := ha
+  obtain ⟨bs,sb,eb⟩ := hb
+  refine ⟨as ∪ bs,Finset.union_subset sa sb,?_⟩
+  intro r
+  simp only [Finset.mem_inter, ea, eb, Finset.mem_union]
+  constructor
+  · rintro ⟨xa,xb⟩ w (h|h)
+    · exact xa w h
+    · exact xb w h
+  · intro h
+    exact ⟨fun w hw => h w (Or.inl hw),fun w hw => h w (Or.inr hw)⟩
+
+def Reach {α : Type} [DecidableEq α] (bank : Finset (Finset α))
+    (target : Finset α) : ℕ → Prop
+  | 0 => FreeMeet bank target
+  | k + 1 => FreeMeet bank target ∨ ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧
+      Reach (insert (a ∪ b) bank) target k
+
+def col {α : Type} [Fintype α] (w : α → List Bool) (i : ℕ) : Finset α :=
+  Finset.univ.filter (fun r => (w r).getD i false)
+
+def addBit (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]
+
+def gateCol {α : Type} [Fintype α] (w : α → List Bool) (g : Gate) : Finset α :=
+  Finset.univ.filter (fun r => g.op.eval (g.inputs.map (fun i => (w r).getD i false)))
+
+theorem newCol {α : Type} [Fintype α] {w : α → List Bool} {L : ℕ}
+    (hw : ∀ r, (w r).length = L) (g : Gate) (i : ℕ) :
+    col (fun r => addBit (w r) g) i = if i = L then gateCol w g else col w i := by
+  by_cases h : i = L
+  · subst i
+    simp only [if_pos rfl]
+    ext r
+    simp [col,gateCol,addBit,← hw r,List.getD_eq_getElem?_getD]
+  · simp only [if_neg h]
+    ext r
+    by_cases hi : i < (w r).length
+    · simp [col,addBit,List.getD_append _ _ _ _ hi]
+    · have hs : (w r).length + 1 ≤ i := by rw [hw r] at hi ⊢; omega
+      simp [col,addBit,List.getD_eq_default _ _ (Nat.le_of_not_lt hi),
+        List.getD_eq_default _ _ (show ((w r) ++ [_]).length ≤ i by simpa using hs)]
+
+def orCost : List Gate → ℕ
+  | [] => 0
+  | g :: gs => (match g.op with | .or => 1 | _ => 0) + orCost gs
+
+theorem countBridge {α : Type} [Fintype α] [DecidableEq α] (gs : List Gate)
+    (ok : ∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2)
+    (bank : Finset (Finset α)) (w : α → List Bool) (L : ℕ)
+    (hw : ∀ r, (w r).length = L) (avail : ∀ i, FreeMeet bank (col w i))
+    (zero : FreeMeet bank ∅) (out : ℕ) :
+    Reach bank (col (fun r => gs.foldl addBit (w r)) out) (orCost gs) := by
+  induction gs generalizing bank w L with
+  | nil => exact avail out
+  | cons g gs ih =>
+    have head := ok g (by simp)
+    have rest : ∀ z ∈ gs, (z.op = .and ∨ z.op = .or) ∧ z.inputs.length ≤ 2 :=
+      fun z hz => ok z (by simp [hz])
+    let w' := fun r => addBit (w r) g
+    have len : ∀ r, (w' r).length = L+1 := by intro r; simp [w',addBit,hw]
+    have stepAvail : ∀ {B : Finset (Finset α)}, bank ⊆ B → FreeMeet B (gateCol w g) →
+        ∀ i, FreeMeet B (col w' i) := by
+      intro B sub hh i
+      change FreeMeet B (col (fun r => addBit (w r) g) i)
+      rw [newCol hw]
+      split
+      · exact hh
+      · exact widenMeet sub (avail i)
+    rcases head.1 with hop | hop
+    · have val : FreeMeet bank (gateCol w g) := by
+        cases hi : g.inputs with
+        | nil =>
+          have u : gateCol w g = Finset.univ := by ext; simp [gateCol,hop,hi,GateOp.eval]
+          exact u ▸ ⟨∅,Finset.empty_subset _,by simp⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil =>
+            have u : gateCol w g = col w i := by ext; simp [gateCol,col,hop,hi,ht,GateOp.eval]
+            exact u ▸ avail i
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            have u : gateCol w g = col w i ∩ col w j := by
+              ext; simp [gateCol,col,hop,hi,ht,hnil,GateOp.eval]
+            exact u ▸ interMeet (avail i) (avail j)
+      simpa [orCost,hop,w'] using ih rest bank w' (L+1) len (stepAvail (by rfl) val) zero
+    · obtain ⟨a,b,ha,hb,hval⟩ : ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧ gateCol w g = a ∪ b := by
+        cases hi : g.inputs with
+        | nil => exact ⟨∅,∅,zero,zero,by ext; simp [gateCol,hop,hi,GateOp.eval]⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil => exact ⟨col w i,∅,avail i,zero,by ext; simp [col,gateCol,hop,hi,ht,GateOp.eval]⟩
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            exact ⟨col w i,col w j,avail i,avail j,by ext; simp [col,gateCol,hop,hi,ht,hnil,GateOp.eval]⟩
+      have sub : bank ⊆ insert (a ∪ b) bank := Finset.subset_insert _ _
+      have hv : gateCol w g ∈ insert (a ∪ b) bank := hval ▸ Finset.mem_insert_self _ _
+      have hrest := ih rest _ w' (L+1) len (stepAvail sub (meetOfMember hv)) (widenMeet sub zero)
+      rw [orCost,hop,Nat.one_add]
+      exact Or.inr ⟨a,b,ha,hb,hrest⟩
+

@@ -1,0 +1,19 @@
+../.pnp/Box9738.lean:56:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ f ≤ 59
+  e ≥ 0
+  d ≥ 0
+  c ≥ 12
+  b ≥ 0
+  b - c ≥ 0
+  a ≥ 0
+  a ≥ 48
+  a + b - d - e ≤ 0
+where
+ a := ↑(∑ t, (A t ×ˢ B t).card)
+ b := ↑↑k
+ c := ↑(∑ i, (D i).card)
+ d := ↑(∑ x, (A x).card)
+ e := ↑(∑ x, (B x).card)
+ f := ↑(∑ t, ((A t).card + (B t).card))
+'PEqualNP.Outside.Boxes9738.boxFormula' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

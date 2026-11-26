@@ -1,0 +1,9 @@
+../.pnp/Overlap10005.lean:197:17: error(lean.unknownIdentifier): Unknown constant `Nat.choose_one`
+../.pnp/Overlap10005.lean:197:6: error: `simp` made no progress
+../.pnp/Overlap10005.lean:210:24: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'PEqualNP.Outside.Matrix10005.someTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.Matrix10005.manyLargeOrFourfold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.Matrix10005.excessPairs' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

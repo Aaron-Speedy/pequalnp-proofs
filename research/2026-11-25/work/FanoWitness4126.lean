@@ -1,0 +1,10 @@
+import FanoPacked4126
+import PEqualNP.Outside.L_meta_6371
+namespace LocalFano4126
+set_option maxRecDepth 16000
+set_option maxHeartbeats 2500000
+theorem witness28 : (have x1 : (Fin (14 : ℕ) → Bool) → Prop := fun (x1 : Fin (14 : ℕ) → Bool) => ∃ (x2 : Fin (7 : ℕ)) (x3 : Fin (7 : ℕ)), (x2 = x3 ∨ x2 = x3 + (1 : Fin (7 : ℕ)) ∨ x2 = x3 + (3 : Fin (7 : ℕ))) ∧ x1 (Fin.castAdd (7 : ℕ) x2) = Bool.true ∧ x1 (Fin.natAdd (7 : ℕ) x3) = Bool.true; ∃ (x2 : PEqualNP.CircuitLowerBounds.Circuit), x2.size ≤ (28 : ℕ) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate), x2.gates[x3]? = Option.some x4 → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x4.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ (x6 : ℕ) (x7 : ℕ), x4.inputs = [x6, x7] ∧ x6 ≠ x7 ∧ x6 < (14 : ℕ) + x3 ∧ x7 < (14 : ℕ) + x3) ∧ (∀ (x3 x4 : Fin (7 : ℕ)), x3 = x4 ∨ x3 = x4 + (1 : Fin (7 : ℕ)) ∨ x3 = x4 + (3 : Fin (7 : ℕ)) → x2.eval (List.ofFn fun (x6 : Fin (14 : ℕ)) => Decidable.decide (x6 = Fin.castAdd (7 : ℕ) x3 ∨ x6 = Fin.natAdd (7 : ℕ) x4)) = Bool.true) ∧ (∀ (x3 : Fin (14 : ℕ) → Bool), ¬x1 x3 → (∀ (x5 : Fin (14 : ℕ) → Bool), (∀ (x6 : Fin (14 : ℕ)), x3 x6 = Bool.true → x5 x6 = Bool.true) → x3 ≠ x5 → x1 x5) → x2.eval (List.ofFn x3) = Bool.false) ∧ ∀ (x3 : Bool), ((PEqualNP.ReadK.linearParts x2 (fun (x4 : ℕ) => Decidable.decide (x4 = if x3 = Bool.true then (7 : ℕ) else (0 : ℕ))) (List.ofFn fun (x4 : Fin (14 : ℕ)) => Decidable.decide (↑x4 = (0 : ℕ) ∨ ↑x4 = (7 : ℕ)))).getD x2.output (Bool.false, Bool.false)).2 = Bool.false) := by
+  apply fromPacked 28 PEqualNP.Outside.L_meta_6371
+  refine ⟨[(true,7,11),(true,14,13),(false,0,15),(true,7,8),(true,17,12),(false,1,18),(true,8,9),(true,20,13),(true,7,9),(true,22,10),(false,3,23),(true,8,10),(true,25,11),(false,4,26),(true,9,11),(true,28,12),(false,5,29),(true,10,12),(true,31,13),(false,6,32),(true,16,19),(true,34,24),(true,35,27),(true,36,30),(true,37,33),(true,38,2),(true,38,21),(false,39,40)],41,?_,?_,?_⟩ <;> decide +kernel
+end LocalFano4126
+#print axioms LocalFano4126.witness28

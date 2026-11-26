@@ -1,0 +1,2 @@
+gates 7 SAT solver exit 10
+[(True, 3, 4), (False, 0, 5), (False, 1, 5), (False, 4, 6), (True, 2, 8), (False, 0, 9), (True, 7, 10)]

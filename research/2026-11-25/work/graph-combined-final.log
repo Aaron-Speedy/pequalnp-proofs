@@ -1,0 +1,37 @@
+../.pnp/GraphGateBounds.lean:117:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/GraphGateBounds.lean:120:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/GraphGateBounds.lean:117:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/GraphGateBounds.lean:425:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/GraphGateBounds.lean:428:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/GraphGateBounds.lean:425:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/GraphGateBounds.lean:932:2: error: Type mismatch: After simplification, term
+  sensitivityBound sample C ok base hits sep
+ has type
+  n ≤ orCost C.gates + 1 + s.card
+but is expected to have type
+  sᶜ.card ≤ orCost C.gates + 1
+'PEqualNP.Outside.L_meta_612_aux.combinedGraphBound' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

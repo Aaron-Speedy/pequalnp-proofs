@@ -1,0 +1,2 @@
+'PEqualNP.Outside.Twins2056.exactSaving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.Twins2056.mergeTwins' depends on axioms: [propext, Classical.choice, Quot.sound]

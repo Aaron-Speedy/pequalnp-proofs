@@ -1,0 +1,4 @@
+../.pnp/StarFast9738.lean:233:2: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'PEqualNP.Outside.Graph9738.exactEdges' depends on axioms: [propext, Classical.choice, Quot.sound]

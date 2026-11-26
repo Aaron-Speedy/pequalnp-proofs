@@ -1,0 +1,6 @@
+#!/bin/bash
+set -eu
+cd .
+{ echo 'import GraphBase'; echo 'namespace PEqualNP.Outside.L_meta_612_aux'; echo 'open PEqualNP.CircuitLowerBounds'; cat ".pnp/graph-$1.part"; echo 'end PEqualNP.Outside.L_meta_612_aux'; } > ".pnp/Test$1.lean"
+cd lean
+lake env bash -c 'LEAN_PATH="../.pnp:$LEAN_PATH" lean "../.pnp/Test$1.lean"' bash "$1" > "../.pnp/test-$1.log" 2>&1

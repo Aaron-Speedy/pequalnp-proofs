@@ -1,0 +1,1 @@
+'Local4928.equivalent' depends on axioms: [propext, Classical.choice, Quot.sound]

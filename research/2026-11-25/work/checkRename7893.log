@@ -1,0 +1,7 @@
+../.pnp/Rename7893.lean:89:51: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [m, wmap, h]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.Rename7893.transport' depends on axioms: [propext, Classical.choice, Quot.sound]

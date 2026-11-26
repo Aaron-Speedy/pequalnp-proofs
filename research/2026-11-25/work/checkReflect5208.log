@@ -1,0 +1,69 @@
+../.pnp/Reflect5208.lean:44:49: error: Application type mismatch: The argument
+  readD x
+has type
+  DNF → Bool
+but is expected to have type
+  List ?m.97
+in the application
+  List.getD_map (readD x)
+../.pnp/Reflect5208.lean:44:49: error: Application type mismatch: The argument
+  readD x
+has type
+  DNF → Bool
+but is expected to have type
+  List ?m.114
+in the application
+  List.getD_map (readD x)
+../.pnp/Reflect5208.lean:37:17: error: unsolved goals
+case cons.inl
+x : V → Bool
+g : Gate
+gs : List Gate
+ih :
+  ∀ (w : List DNF),
+    (∀ g ∈ gs, good g) → List.map (readD x) (List.foldl sym w gs) = List.foldl evalStep (List.map (readD x) w) gs
+w : List DNF
+ok : ∀ g_1 ∈ g :: gs, good g_1
+a b : ℕ
+ins : g.inputs = [a, b]
+h : g.op = GateOp.and
+rd : ∀ (i : ℕ), (List.map (readD x) w).getD i false = readD x (w.getD i ∅)
+⊢ (readD x (w[a]?.getD ∅) && readD x (w[b]?.getD ∅)) =
+    ((Option.map (readD x) w[a]?).getD false && (Option.map (readD x) w[b]?).getD false)
+
+case cons.inr
+x : V → Bool
+g : Gate
+gs : List Gate
+ih :
+  ∀ (w : List DNF),
+    (∀ g ∈ gs, good g) → List.map (readD x) (List.foldl sym w gs) = List.foldl evalStep (List.map (readD x) w) gs
+w : List DNF
+ok : ∀ g_1 ∈ g :: gs, good g_1
+a b : ℕ
+ins : g.inputs = [a, b]
+h : g.op = GateOp.or
+rd : ∀ (i : ℕ), (List.map (readD x) w).getD i false = readD x (w.getD i ∅)
+⊢ (readD x (w[a]?.getD ∅) || readD x (w[b]?.getD ∅)) =
+    ((Option.map (readD x) w[a]?).getD false || (Option.map (readD x) w[b]?).getD false)
+../.pnp/Reflect5208.lean:45:43: warning: This simp argument is unused:
+  rd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sym, evalStep, h, ins, GateOp.eval, read_mul, read_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/Reflect5208.lean:54:67: warning: This simp argument is unused:
+  List.map_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [init, Function.comp_def, readD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/Reflect5208.lean:54:81: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [init, List.map_ofFn, readD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

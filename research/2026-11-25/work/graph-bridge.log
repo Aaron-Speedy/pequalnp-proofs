@@ -1,0 +1,64 @@
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+PEqualNP/Outside/L_meta_612.lean:120:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+PEqualNP/Outside/L_meta_612.lean:123:4: error: unsolved goals
+case pos
+α : Type
+inst✝ : Fintype α
+w : α → List Bool
+L : ℕ
+hw : ∀ (r : α), (w r).length = L
+g : Gate
+i : ℕ
+h : ¬i = L
+r : α
+hi : i < (w r).length
+⊢ (w r ++ [g.op.eval (List.map (fun i => (w r)[i]?.getD false) g.inputs)])[i]?.getD false = (w r)[i]?.getD false
+PEqualNP/Outside/L_meta_612.lean:124:4: error: unsolved goals
+case neg
+α : Type
+inst✝ : Fintype α
+w : α → List Bool
+L : ℕ
+hw : ∀ (r : α), (w r).length = L
+g : Gate
+i : ℕ
+h : ¬i = L
+r : α
+hi : ¬i < (w r).length
+hs : (w r).length + 1 ≤ i
+⊢ (w r ++ [g.op.eval (List.map (fun i => (w r)[i]?.getD false) g.inputs)])[i]?.getD false = (w r)[i]?.getD false
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:123:23: warning: This simp argument is unused:
+  List.getD_append _ _ _ _ hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [col, addBit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:125:23: warning: This simp argument is unused:
+  List.getD_eq_default _ _ (Nat.le_of_not_lt hi)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [col, addBit, List.getD_eq_default _ _ (show ((w r) ++ [_]).length ≤ i by simpa using hs)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:126:8: warning: This simp argument is unused:
+  List.getD_eq_default _ _ (show ((w r) ++ [_]).length ≤ i by simpa using hs)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [col, addBit, List.getD_eq_default _ _ (Nat.le_of_not_lt hi)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:188:8: warning: declaration uses `sorry`

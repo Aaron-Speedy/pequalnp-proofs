@@ -1,0 +1,951 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_612_aux
+
+def FreeMeet {α : Type} (bank : Finset (Finset α)) (values : Finset α) : Prop :=
+  ∃ inputs ⊆ bank, ∀ r, r ∈ values ↔ ∀ w ∈ inputs, r ∈ w
+
+def hull {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (rows : Finset α) : Finset α :=
+  Finset.univ.filter (fun r => ∀ w ∈ bank, rows ⊆ w → r ∈ w)
+
+theorem memHull {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {rows : Finset α} {r : α} :
+    r ∈ hull bank rows ↔ ∀ w ∈ bank, rows ⊆ w → r ∈ w := by simp [hull]
+
+theorem insideHull {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (rows : Finset α) : rows ⊆ hull bank rows := by
+  intro r hr
+  exact memHull.mpr (fun _ _ h => h hr)
+
+theorem hullFree {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (rows : Finset α) : FreeMeet bank (hull bank rows) := by
+  refine ⟨bank.filter (fun w => rows ⊆ w), Finset.filter_subset _ _, ?_⟩
+  intro r
+  simp only [memHull, Finset.mem_filter, and_imp]
+
+theorem leastHull {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {rows w : Finset α}
+    (h : FreeMeet bank w) (subset : rows ⊆ w) : hull bank rows ⊆ w := by
+  obtain ⟨inputs,sub,meet⟩ := h
+  intro r hr
+  apply (meet r).mpr
+  intro z hz
+  exact memHull.mp hr z (sub hz) (fun x hx => (meet x).mp (subset hx) z hz)
+
+theorem finalOr {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (target : Finset α) :
+    (∃ a b c, FreeMeet bank a ∧ FreeMeet bank b ∧ FreeMeet bank c ∧
+      target = c ∩ (a ∪ b)) ↔
+    ∃ s ⊆ target, target = hull bank target ∩ (hull bank s ∪ hull bank (target \ s)) := by
+  classical
+  constructor
+  · rintro ⟨a,b,c,ha,hb,hc,eq⟩
+    let s := target ∩ a
+    refine ⟨s, Finset.inter_subset_left, Finset.Subset.antisymm ?_ ?_⟩
+    · intro r hr
+      apply Finset.mem_inter.mpr
+      refine ⟨insideHull bank target hr, ?_⟩
+      by_cases hs : r ∈ s
+      · exact Finset.mem_union_left _ (insideHull bank s hs)
+      · exact Finset.mem_union_right _ (insideHull bank _ (Finset.mem_sdiff.mpr ⟨hr,hs⟩))
+    · have tc : target ⊆ c := eq ▸ Finset.inter_subset_left
+      have sb : target \ s ⊆ b := by
+        intro r hr
+        obtain ⟨ht,hs⟩ := Finset.mem_sdiff.mp hr
+        have hu := (Finset.mem_inter.mp (eq ▸ ht)).2
+        rcases Finset.mem_union.mp hu with h | h
+        · exact False.elim (hs (Finset.mem_inter.mpr ⟨ht,h⟩))
+        · exact h
+      intro r hr
+      obtain ⟨h1,h2⟩ := Finset.mem_inter.mp hr
+      rw [eq]
+      refine Finset.mem_inter.mpr ⟨leastHull hc tc h1, ?_⟩
+      rcases Finset.mem_union.mp h2 with h | h
+      · exact Finset.mem_union_left _ (leastHull ha (show s ⊆ a from Finset.inter_subset_right) h)
+      · exact Finset.mem_union_right _ (leastHull hb sb h)
+  · rintro ⟨s,_,eq⟩
+    exact ⟨_,_,_,hullFree bank s,hullFree bank _,hullFree bank target,eq⟩
+
+open PEqualNP.CircuitLowerBounds
+
+theorem meetOfMember {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {w : Finset α} (hw : w ∈ bank) : FreeMeet bank w := by
+  exact ⟨{w}, by simpa using hw, by simp⟩
+
+theorem widenMeet {α : Type} {bank bank' : Finset (Finset α)} {w : Finset α}
+    (sub : bank ⊆ bank') (h : FreeMeet bank w) : FreeMeet bank' w := by
+  obtain ⟨ws, hws, eq⟩ := h
+  exact ⟨ws, hws.trans sub, eq⟩
+
+theorem interMeet {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {a b : Finset α} (ha : FreeMeet bank a) (hb : FreeMeet bank b) :
+    FreeMeet bank (a ∩ b) := by
+  obtain ⟨as,sa,ea⟩ := ha
+  obtain ⟨bs,sb,eb⟩ := hb
+  refine ⟨as ∪ bs,Finset.union_subset sa sb,?_⟩
+  intro r
+  simp only [Finset.mem_inter, ea, eb, Finset.mem_union]
+  constructor
+  · rintro ⟨xa,xb⟩ w (h|h)
+    · exact xa w h
+    · exact xb w h
+  · intro h
+    exact ⟨fun w hw => h w (Or.inl hw),fun w hw => h w (Or.inr hw)⟩
+
+def Reach {α : Type} [DecidableEq α] (bank : Finset (Finset α))
+    (target : Finset α) : ℕ → Prop
+  | 0 => FreeMeet bank target
+  | k + 1 => FreeMeet bank target ∨ ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧
+      Reach (insert (a ∪ b) bank) target k
+
+def col {α : Type} [Fintype α] (w : α → List Bool) (i : ℕ) : Finset α :=
+  Finset.univ.filter (fun r => (w r).getD i false)
+
+def addBit (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]
+
+def gateCol {α : Type} [Fintype α] (w : α → List Bool) (g : Gate) : Finset α :=
+  Finset.univ.filter (fun r => g.op.eval (g.inputs.map (fun i => (w r).getD i false)))
+
+theorem newCol {α : Type} [Fintype α] {w : α → List Bool} {L : ℕ}
+    (hw : ∀ r, (w r).length = L) (g : Gate) (i : ℕ) :
+    col (fun r => addBit (w r) g) i = if i = L then gateCol w g else col w i := by
+  by_cases h : i = L
+  · subst i
+    simp only [if_pos rfl]
+    ext r
+    simp [col,gateCol,addBit,← hw r,List.getD_eq_getElem?_getD]
+  · simp only [if_neg h]
+    ext r
+    have eq : (addBit (w r) g).getD i false = (w r).getD i false := by
+      unfold addBit
+      by_cases hi : i < (w r).length
+      · exact List.getD_append _ _ _ _ hi
+      · have hs : (w r).length + 1 ≤ i := by rw [hw r] at hi ⊢; omega
+        rw [List.getD_eq_default _ _ (show ((w r) ++ [_]).length ≤ i by simpa using hs),
+          List.getD_eq_default _ _ (Nat.le_of_not_lt hi)]
+    simp only [col, Finset.mem_filter, Finset.mem_univ, true_and, eq]
+
+def orCost : List Gate → ℕ
+  | [] => 0
+  | g :: gs => (match g.op with | .or => 1 | _ => 0) + orCost gs
+
+theorem countBridge {α : Type} [Fintype α] [DecidableEq α] (gs : List Gate)
+    (ok : ∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2)
+    (bank : Finset (Finset α)) (w : α → List Bool) (L : ℕ)
+    (hw : ∀ r, (w r).length = L) (avail : ∀ i, FreeMeet bank (col w i))
+    (zero : FreeMeet bank ∅) (out : ℕ) :
+    Reach bank (col (fun r => gs.foldl addBit (w r)) out) (orCost gs) := by
+  induction gs generalizing bank w L with
+  | nil => exact avail out
+  | cons g gs ih =>
+    have head := ok g (by simp)
+    have rest : ∀ z ∈ gs, (z.op = .and ∨ z.op = .or) ∧ z.inputs.length ≤ 2 :=
+      fun z hz => ok z (by simp [hz])
+    let w' := fun r => addBit (w r) g
+    have len : ∀ r, (w' r).length = L+1 := by intro r; simp [w',addBit,hw]
+    have stepAvail : ∀ {B : Finset (Finset α)}, bank ⊆ B → FreeMeet B (gateCol w g) →
+        ∀ i, FreeMeet B (col w' i) := by
+      intro B sub hh i
+      change FreeMeet B (col (fun r => addBit (w r) g) i)
+      rw [newCol hw]
+      split
+      · exact hh
+      · exact widenMeet sub (avail i)
+    rcases head.1 with hop | hop
+    · have val : FreeMeet bank (gateCol w g) := by
+        cases hi : g.inputs with
+        | nil =>
+          have u : gateCol w g = Finset.univ := by ext; simp [gateCol,hop,hi,GateOp.eval]
+          exact u ▸ ⟨∅,Finset.empty_subset _,by simp⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil =>
+            have u : gateCol w g = col w i := by ext; simp [gateCol,col,hop,hi,ht,GateOp.eval]
+            exact u ▸ avail i
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            have u : gateCol w g = col w i ∩ col w j := by
+              ext; simp [gateCol,col,hop,hi,ht,hnil,GateOp.eval]
+            exact u ▸ interMeet (avail i) (avail j)
+      simpa [orCost,hop,w'] using ih rest bank w' (L+1) len (stepAvail (by rfl) val) zero
+    · obtain ⟨a,b,ha,hb,hval⟩ : ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧ gateCol w g = a ∪ b := by
+        cases hi : g.inputs with
+        | nil => exact ⟨∅,∅,zero,zero,by ext; simp [gateCol,hop,hi,GateOp.eval]⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil => exact ⟨col w i,∅,avail i,zero,by ext; simp [col,gateCol,hop,hi,ht,GateOp.eval]⟩
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            exact ⟨col w i,col w j,avail i,avail j,by ext; simp [col,gateCol,hop,hi,ht,hnil,GateOp.eval]⟩
+      have sub : bank ⊆ insert (a ∪ b) bank := Finset.subset_insert _ _
+      have hv : gateCol w g ∈ insert (a ∪ b) bank := hval ▸ Finset.mem_insert_self _ _
+      have hrest := ih rest _ w' (L+1) len (stepAvail sub (meetOfMember hv)) (widenMeet sub zero)
+      rw [orCost,hop,Nat.one_add]
+      exact Or.inr ⟨a,b,ha,hb,hrest⟩
+
+def meetRows {α : Type} [Fintype α] [DecidableEq α] (ss : Finset (Finset α)) : Finset α :=
+  Finset.univ.filter (fun r => ∀ s ∈ ss, r ∈ s)
+
+def meets {α : Type} [Fintype α] [DecidableEq α] (bank : Finset (Finset α)) :
+    Finset (Finset α) := bank.powerset.image meetRows
+
+theorem memMeets {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} : w ∈ meets bank ↔ FreeMeet bank w := by
+  simp only [meets,Finset.mem_image,Finset.mem_powerset,FreeMeet]
+  constructor
+  · rintro ⟨s,hs,rfl⟩
+    exact ⟨s,hs,by simp [meetRows]⟩
+  · rintro ⟨s,hs,eq⟩
+    exact ⟨s,hs,by ext r; simp [meetRows,eq r]⟩
+
+def searchOr {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (target : Finset α) : ℕ → Bool
+  | 0 => decide (hull bank target = target)
+  | 1 => decide (∃ s ⊆ target,
+      target = hull bank target ∩ (hull bank s ∪ hull bank (target \ s)))
+  | k+2 => decide (hull bank target = target) ||
+      decide (∃ a ∈ meets bank, ∃ b ∈ meets bank, searchOr (insert (a ∪ b) bank) target (k+1) = true)
+
+theorem hullEqFree {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} : hull bank w = w ↔ FreeMeet bank w := by
+  constructor
+  · intro h
+    exact h ▸ hullFree bank w
+  · intro h
+    exact Finset.Subset.antisymm (leastHull h (by rfl)) (insideHull bank w)
+
+theorem freeAfter {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w u : Finset α} (h : FreeMeet (insert u bank) w) :
+    FreeMeet bank w ∨ ∃ c, FreeMeet bank c ∧ w = c ∩ u := by
+  obtain ⟨ss,sub,eq⟩ := h
+  by_cases hu : u ∈ ss
+  · right
+    let rest := ss.erase u
+    have hs : rest ⊆ bank := by
+      intro x hx
+      obtain ⟨hn,hm⟩ := Finset.mem_erase.mp hx
+      exact (Finset.mem_insert.mp (sub hm)).resolve_left hn
+    refine ⟨meetRows rest, memMeets.mp (Finset.mem_image.mpr ⟨rest,Finset.mem_powerset.mpr hs,rfl⟩),?_⟩
+    ext r
+    simp only [eq r, Finset.mem_inter, meetRows, Finset.mem_filter, Finset.mem_univ, true_and]
+    constructor
+    · intro hall
+      exact ⟨fun z hz => hall z (Finset.mem_of_mem_erase hz),hall _ hu⟩
+    · rintro ⟨h1,h2⟩ z hz
+      by_cases hit : z = u
+      · exact hit ▸ h2
+      · exact h1 z (Finset.mem_erase.mpr ⟨hit,hz⟩)
+  · left
+    refine ⟨ss,?_,eq⟩
+    intro z hz
+    exact (Finset.mem_insert.mp (sub hz)).resolve_left (fun e => hu (e ▸ hz))
+
+theorem reachOne {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} :
+    Reach bank w 1 ↔ ∃ a b c, FreeMeet bank a ∧ FreeMeet bank b ∧ FreeMeet bank c ∧ w = c ∩ (a ∪ b) := by
+  have easy (h : FreeMeet bank w) : ∃ a b c, FreeMeet bank a ∧ FreeMeet bank b ∧ FreeMeet bank c ∧ w = c ∩ (a ∪ b) :=
+    ⟨w,w,w,h,h,h,by simp⟩
+  constructor
+  · rintro (hw | ⟨a,b,ha,hb,hw⟩)
+    · exact easy hw
+    · rcases freeAfter hw with h | ⟨c,hc,eq⟩
+      · exact easy h
+      · exact ⟨a,b,c,ha,hb,hc,eq⟩
+  · rintro ⟨a,b,c,ha,hb,hc,rfl⟩
+    exact Or.inr ⟨a,b,ha,hb,interMeet (widenMeet (Finset.subset_insert _ _) hc)
+      (meetOfMember (Finset.mem_insert_self _ _))⟩
+
+theorem searchExact {α : Type} [Fintype α] [DecidableEq α] (k : ℕ)
+    (bank : Finset (Finset α)) (w : Finset α) : searchOr bank w k = true ↔ Reach bank w k := by
+  induction k generalizing bank with
+  | zero => simp [searchOr,Reach,hullEqFree]
+  | succ k ih =>
+    cases k with
+    | zero => simpa only [searchOr,decide_eq_true_eq] using
+        ((reachOne (bank := bank) (w := w)).trans (finalOr bank w)).symm
+    | succ k =>
+      simp only [searchOr,Bool.or_eq_true,decide_eq_true_eq,memMeets,hullEqFree,ih]
+      change _ ↔ (FreeMeet bank w ∨ ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧ _)
+      aesop
+
+def inputBank {α : Type} [Fintype α] [DecidableEq α] {n : ℕ}
+    (sample : α → Fin n → Bool) : Finset (Finset α) :=
+  insert ∅ (Finset.univ.image (fun i : Fin n => Finset.univ.filter (fun r => sample r i)))
+
+theorem circuitSearch {α : Type} [Fintype α] [DecidableEq α] {n : ℕ}
+    (sample : α → Fin n → Bool) (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C) :
+    searchOr (inputBank sample) (Finset.univ.filter (fun r => C.eval (List.ofFn (sample r))))
+      (orCost C.gates) = true := by
+  let wires := fun r => List.ofFn (sample r)
+  have hw : ∀ r, (wires r).length = n := by simp [wires]
+  have zero : FreeMeet (inputBank sample) ∅ := meetOfMember (Finset.mem_insert_self _ _)
+  have avail : ∀ i, FreeMeet (inputBank sample) (col wires i) := by
+    intro i
+    by_cases hi : i < n
+    · apply meetOfMember
+      apply Finset.mem_insert_of_mem
+      apply Finset.mem_image.mpr
+      refine ⟨⟨i,hi⟩, Finset.mem_univ _, ?_⟩
+      ext r
+      simp [col,wires,hi]
+    · have he : col wires i = ∅ := by
+        ext r
+        have hget := List.getD_eq_default (wires r) false (show (wires r).length ≤ i by rw [hw]; omega)
+        simp only [col,Finset.mem_filter,Finset.mem_univ,true_and,hget,Bool.false_eq_true,Finset.notMem_empty]
+      exact he ▸ zero
+  apply (searchExact _ _ _).mpr
+  apply countBridge C.gates _ _ wires n hw avail zero C.output
+  intro g hg
+  simpa only [Set.mem_insert_iff,Set.mem_singleton_iff] using ok g hg
+
+theorem reachMore {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {w : Finset α} {k : ℕ} (h : Reach bank w k) : Reach bank w (k+1) := by
+  induction k generalizing bank with
+  | zero => exact Or.inl h
+  | succ k ih =>
+    rcases h with hf | ⟨a,b,ha,hb,hr⟩
+    · exact Or.inl hf
+    · exact Or.inr ⟨a,b,ha,hb,ih hr⟩
+
+theorem searchLower {α : Type} [Fintype α] [DecidableEq α] {bank : Finset (Finset α)}
+    {w : Finset α} {k s : ℕ} (no : searchOr bank w k = false)
+    (yes : searchOr bank w s = true) : k < s := by
+  by_contra! le
+  have h : Reach bank w k := by
+    clear no
+    induction le with
+    | refl => exact (searchExact _ _ _).mp yes
+    | step _ ih => exact reachMore ih
+  have := (searchExact _ _ _).mpr h
+  simp [no] at this
+
+def triangleSample (r : Fin 6) (i : Fin 3) : Bool :=
+  ((![3,5,6,1,2,4] : Fin 6 → ℕ) r).testBit i
+
+def triangleTable : Finset (Fin 6) := {0,1,2}
+
+theorem triangleOneOr : searchOr (inputBank triangleSample) triangleTable 1 = false := by
+  decide +kernel
+
+theorem triangleOrCount (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ r, C.eval (List.ofFn (triangleSample r)) = decide (r ∈ triangleTable)) :
+    2 ≤ orCost C.gates := by
+  have tested := circuitSearch triangleSample C ok
+  have eq : (Finset.univ.filter (fun r => C.eval (List.ofFn (triangleSample r)))) = triangleTable := by
+    ext r; simp only [Finset.mem_filter,Finset.mem_univ,true_and,correct,decide_eq_true_eq]
+  rw [eq] at tested
+  exact searchLower triangleOneOr tested
+
+def Simulates {α : Type} [DecidableEq α] (required : Finset α)
+    (strong weak : Finset (Finset α)) : Prop :=
+  ∀ w ∈ weak, ∃ z, FreeMeet strong z ∧ z ⊆ w ∧ required ∩ w ⊆ z
+
+theorem simulateMeet {α : Type} [Fintype α] [DecidableEq α]
+    {required : Finset α} {strong weak : Finset (Finset α)} (sim : Simulates required strong weak)
+    {m : Finset α} (hm : FreeMeet weak m) {s : Finset α} (hs : s ⊆ required ∩ m) :
+    hull strong s ⊆ m := by
+  obtain ⟨inputs,sub,eq⟩ := hm
+  intro r hr
+  apply (eq r).mpr
+  intro w hw
+  obtain ⟨z,hz,small,preserve⟩ := sim w (sub hw)
+  apply small
+  apply leastHull hz _ hr
+  intro q hq
+  obtain ⟨req,mem⟩ := Finset.mem_inter.mp (hs hq)
+  exact preserve (Finset.mem_inter.mpr ⟨req,(eq q).mp mem w hw⟩)
+
+theorem extendSim {α : Type} [DecidableEq α] {required w z : Finset α}
+    {strong weak : Finset (Finset α)} (sim : Simulates required strong weak)
+    (small : z ⊆ w) (keep : required ∩ w ⊆ z) :
+    Simulates required (insert z strong) (insert w weak) := by
+  intro a ha
+  rcases Finset.mem_insert.mp ha with rfl | hm
+  · exact ⟨z,meetOfMember (Finset.mem_insert_self _ _),small,keep⟩
+  · obtain ⟨b,hb,sub,preserve⟩ := sim a hm
+    exact ⟨b,widenMeet (Finset.subset_insert _ _) hb,sub,preserve⟩
+
+def smallSearch {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (target : Finset α) : ℕ → Bool
+  | 0 => decide (hull bank target = target)
+  | k+1 => decide (hull bank target = target) ||
+      decide (∃ a ⊆ target, ∃ b ⊆ target \ a,
+        smallSearch (insert (hull bank a ∪ hull bank b) bank) target k = true)
+
+theorem smallComplete {α : Type} [Fintype α] [DecidableEq α] (target : Finset α)
+    {weak strong : Finset (Finset α)} (k : ℕ) (sim : Simulates target strong weak)
+    (h : Reach weak target k) : smallSearch strong target k = true := by
+  have stop (hh : FreeMeet weak target) : hull strong target = target :=
+    Finset.Subset.antisymm (simulateMeet sim hh (by simp)) (insideHull _ _)
+  induction k generalizing weak strong with
+  | zero => simp only [smallSearch,decide_eq_true_eq]; exact stop h
+  | succ k ih =>
+    simp only [smallSearch,Bool.or_eq_true,decide_eq_true_eq]
+    rcases h with free | ⟨a,b,ha,hb,next⟩
+    · exact Or.inl (stop free)
+    · right
+      let p := target ∩ a
+      let q := (target ∩ b) \ p
+      have pq : q ⊆ target \ p := by
+        intro r hr
+        obtain ⟨ht,hp⟩ := Finset.mem_sdiff.mp hr
+        exact Finset.mem_sdiff.mpr ⟨(Finset.mem_inter.mp ht).1,hp⟩
+      refine ⟨p,Finset.inter_subset_left,q,pq,?_⟩
+      have small : hull strong p ∪ hull strong q ⊆ a ∪ b :=
+        Finset.union_subset_union (simulateMeet sim ha (by rfl))
+          (simulateMeet sim hb Finset.sdiff_subset)
+      have keep : target ∩ (a ∪ b) ⊆ hull strong p ∪ hull strong q := by
+        intro r hr
+        obtain ⟨ht,hu⟩ := Finset.mem_inter.mp hr
+        by_cases hp : r ∈ p
+        · exact Finset.mem_union_left _ (insideHull strong p hp)
+        · rcases Finset.mem_union.mp hu with h | h
+          · exact False.elim (hp (Finset.mem_inter.mpr ⟨ht,h⟩))
+          · exact Finset.mem_union_right _ (insideHull strong q
+              (Finset.mem_sdiff.mpr ⟨Finset.mem_inter.mpr ⟨ht,h⟩,hp⟩))
+      exact ih (extendSim sim small keep) next (fun hh =>
+        Finset.Subset.antisymm (simulateMeet (extendSim sim small keep) hh (by simp))
+          (insideHull _ _))
+
+
+def negCol {α : Type} [Fintype α] (w : α → List Bool) (i : ℕ) : Finset α :=
+  Finset.univ.filter (fun r => !(w r).getD i false)
+
+def negGate {α : Type} [Fintype α] (w : α → List Bool) (g : Gate) : Finset α :=
+  Finset.univ.filter (fun r => !g.op.eval (g.inputs.map (fun i => (w r).getD i false)))
+
+theorem newNeg {α : Type} [Fintype α] {w : α → List Bool} {L : ℕ}
+    (hw : ∀ r, (w r).length = L) (g : Gate) (i : ℕ) :
+    negCol (fun r => addBit (w r) g) i = if i = L then negGate w g else negCol w i := by
+  by_cases h : i = L
+  · subst i
+    simp only [if_pos rfl]
+    ext r
+    simp [negCol,negGate,addBit,← hw r,List.getD_eq_getElem?_getD]
+  · simp only [if_neg h]
+    ext r
+    have eq : (addBit (w r) g).getD i false = (w r).getD i false := by
+      unfold addBit
+      by_cases hi : i < (w r).length
+      · exact List.getD_append _ _ _ _ hi
+      · have hs : (w r).length + 1 ≤ i := by rw [hw r] at hi ⊢; omega
+        rw [List.getD_eq_default _ _ (show ((w r) ++ [_]).length ≤ i by simpa using hs),
+          List.getD_eq_default _ _ (Nat.le_of_not_lt hi)]
+    simp only [negCol, Finset.mem_filter, Finset.mem_univ, true_and, eq]
+
+def andCost : List Gate → ℕ
+  | [] => 0
+  | g :: gs => (match g.op with | .and => 1 | _ => 0) + andCost gs
+
+theorem andBridge {α : Type} [Fintype α] [DecidableEq α] (gs : List Gate)
+    (ok : ∀ g ∈ gs, (g.op = .or ∨ g.op = .and) ∧ g.inputs.length ≤ 2)
+    (bank : Finset (Finset α)) (w : α → List Bool) (L : ℕ)
+    (hw : ∀ r, (w r).length = L) (avail : ∀ i, FreeMeet bank (negCol w i))
+    (zero : FreeMeet bank ∅) (out : ℕ) :
+    Reach bank (negCol (fun r => gs.foldl addBit (w r)) out) (andCost gs) := by
+  induction gs generalizing bank w L with
+  | nil => exact avail out
+  | cons g gs ih =>
+    have head := ok g (by simp)
+    have rest : ∀ z ∈ gs, (z.op = .or ∨ z.op = .and) ∧ z.inputs.length ≤ 2 :=
+      fun z hz => ok z (by simp [hz])
+    let w' := fun r => addBit (w r) g
+    have len : ∀ r, (w' r).length = L+1 := by intro r; simp [w',addBit,hw]
+    have stepAvail : ∀ {B : Finset (Finset α)}, bank ⊆ B → FreeMeet B (negGate w g) →
+        ∀ i, FreeMeet B (negCol w' i) := by
+      intro B sub hh i
+      change FreeMeet B (negCol (fun r => addBit (w r) g) i)
+      rw [newNeg hw]
+      split
+      · exact hh
+      · exact widenMeet sub (avail i)
+    rcases head.1 with hop | hop
+    · have val : FreeMeet bank (negGate w g) := by
+        cases hi : g.inputs with
+        | nil =>
+          have u : negGate w g = Finset.univ := by ext; simp [negGate,hop,hi,GateOp.eval]
+          exact u ▸ ⟨∅,Finset.empty_subset _,by simp⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil =>
+            have u : negGate w g = negCol w i := by ext; simp [negGate,negCol,hop,hi,ht,GateOp.eval]
+            exact u ▸ avail i
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            have u : negGate w g = negCol w i ∩ negCol w j := by
+              ext; simp [negGate,negCol,hop,hi,ht,hnil,GateOp.eval]
+            exact u ▸ interMeet (avail i) (avail j)
+      simpa [andCost,hop,w'] using ih rest bank w' (L+1) len (stepAvail (by rfl) val) zero
+    · obtain ⟨a,b,ha,hb,hval⟩ : ∃ a b, FreeMeet bank a ∧ FreeMeet bank b ∧ negGate w g = a ∪ b := by
+        cases hi : g.inputs with
+        | nil => exact ⟨∅,∅,zero,zero,by ext; simp [negGate,hop,hi,GateOp.eval]⟩
+        | cons i tail =>
+          cases ht : tail with
+          | nil => exact ⟨negCol w i,∅,avail i,zero,by ext; simp [negCol,negGate,hop,hi,ht,GateOp.eval]⟩
+          | cons j js =>
+            have hnil : js = [] := by have := head.2; simp [hi,ht] at this; exact this
+            exact ⟨negCol w i,negCol w j,avail i,avail j,by ext; simp [negCol,negGate,hop,hi,ht,hnil,GateOp.eval]⟩
+      have sub : bank ⊆ insert (a ∪ b) bank := Finset.subset_insert _ _
+      have hv : negGate w g ∈ insert (a ∪ b) bank := hval ▸ Finset.mem_insert_self _ _
+      have hrest := ih rest _ w' (L+1) len (stepAvail sub (meetOfMember hv)) (widenMeet sub zero)
+      rw [andCost,hop,Nat.one_add]
+      exact Or.inr ⟨a,b,ha,hb,hrest⟩
+
+theorem circuitAndSearch {α : Type} [Fintype α] [DecidableEq α] {n : ℕ}
+    (sample : α → Fin n → Bool) (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C) :
+    searchOr (inputBank (fun r i => !(sample r i))) (Finset.univ.filter (fun r => !C.eval (List.ofFn (sample r))))
+      (andCost C.gates) = true := by
+  let wires := fun r => List.ofFn (sample r)
+  have hw : ∀ r, (wires r).length = n := by simp [wires]
+  have zero : FreeMeet (inputBank (fun r i => !(sample r i))) ∅ := meetOfMember (Finset.mem_insert_self _ _)
+  have avail : ∀ i, FreeMeet (inputBank (fun r i => !(sample r i))) (negCol wires i) := by
+    intro i
+    by_cases hi : i < n
+    · apply meetOfMember
+      apply Finset.mem_insert_of_mem
+      apply Finset.mem_image.mpr
+      refine ⟨⟨i,hi⟩, Finset.mem_univ _, ?_⟩
+      ext r
+      simp [negCol,wires,hi]
+    · have he : negCol wires i = Finset.univ := by
+        ext r
+        have hget := List.getD_eq_default (wires r) false (show (wires r).length ≤ i by rw [hw]; omega)
+        simp only [negCol,Finset.mem_filter,Finset.mem_univ,true_and,hget,Bool.not_false,Finset.mem_univ]
+      exact he ▸ ⟨∅,Finset.empty_subset _,by simp⟩
+  apply (searchExact _ _ _).mpr
+  apply andBridge C.gates _ _ wires n hw avail zero C.output
+  intro g hg
+  simpa only [Set.mem_insert_iff,Set.mem_singleton_iff, or_comm] using ok g hg
+
+
+theorem gateCounts (gs : List Gate) : andCost gs + orCost gs ≤ gs.length := by
+  induction gs with
+  | nil => decide
+  | cons g gs ih => cases h : g.op <;> simp [andCost,orCost,h] <;> omega
+
+def triangleFalse : Finset (Fin 6) := {3,4,5}
+
+theorem triangleAtLeastFour (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ r, C.eval (List.ofFn (triangleSample r)) = decide (r ∈ triangleTable)) :
+    4 ≤ C.size := by
+  have pos := triangleOrCount C ok correct
+  have tested := circuitAndSearch triangleSample C ok
+  have opposite : ∀ r : Fin 6, (!decide (r ∈ triangleTable)) = decide (r ∈ triangleFalse) := by
+    decide +kernel
+  have eq : (Finset.univ.filter (fun r => !C.eval (List.ofFn (triangleSample r)))) = triangleFalse := by
+    ext r
+    simp only [Finset.mem_filter,Finset.mem_univ,true_and,correct,opposite,decide_eq_true_eq]
+  rw [eq] at tested
+  have no : searchOr (inputBank (fun r i => !(triangleSample r i))) triangleFalse 1 = false := by
+    decide +kernel
+  have neg := searchLower no tested
+  have total := gateCounts C.gates
+  change 4 ≤ C.gates.length
+  omega
+
+theorem smallSound {α : Type} [Fintype α] [DecidableEq α] (target : Finset α)
+    (bank : Finset (Finset α)) (k : ℕ) (yes : smallSearch bank target k = true) :
+    Reach bank target k := by
+  induction k generalizing bank with
+  | zero => exact hullEqFree.mp (of_decide_eq_true yes)
+  | succ k ih =>
+    simp only [smallSearch,Bool.or_eq_true,decide_eq_true_eq] at yes
+    rcases yes with stop | ⟨a,_,b,_,next⟩
+    · exact Or.inl (hullEqFree.mp stop)
+    · exact Or.inr ⟨_,_,hullFree bank a,hullFree bank b,ih _ next⟩
+
+theorem smallExact {α : Type} [Fintype α] [DecidableEq α] (target : Finset α)
+    (bank : Finset (Finset α)) (k : ℕ) : smallSearch bank target k = true ↔ Reach bank target k :=
+  ⟨smallSound target bank k, smallComplete target k (fun w hw =>
+    ⟨w,meetOfMember hw,Finset.Subset.refl _,Finset.inter_subset_right⟩)⟩
+
+theorem coverByMeets {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} {k : ℕ} (h : Reach bank w k) :
+    ∃ terms : Finset (Finset α), terms.card ≤ 2 ^ k ∧
+      (∀ z ∈ terms, FreeMeet bank z) ∧ terms.biUnion id = w := by
+  classical
+  have one {B : Finset (Finset α)} {v : Finset α} (hf : FreeMeet B v) (s : ℕ) :
+      ∃ terms : Finset (Finset α), terms.card ≤ 2 ^ s ∧
+        (∀ z ∈ terms, FreeMeet B z) ∧ terms.biUnion id = v := by
+    refine ⟨{v},?_,by simpa using hf,by simp⟩
+    simp only [Finset.card_singleton]
+    exact Nat.one_le_two_pow
+  induction k generalizing bank with
+  | zero => exact one h 0
+  | succ k ih =>
+    rcases h with stop | ⟨a,b,ha,hb,next⟩
+    · exact one stop _
+    obtain ⟨terms,bound,free,total⟩ := ih next
+    have split : ∀ z ∈ terms, ∃ pair : Finset (Finset α), pair.card ≤ 2 ∧
+        (∀ u ∈ pair, FreeMeet bank u) ∧ pair.biUnion id = z := by
+      intro z hz
+      rcases freeAfter (free z hz) with f | ⟨c,hc,rfl⟩
+      · exact ⟨{z},by simp,by simpa using f,by simp⟩
+      · refine ⟨{c ∩ a,c ∩ b},?_,?_,?_⟩
+        · exact (Finset.card_insert_le _ _).trans (by simp)
+        · simp [interMeet hc ha,interMeet hc hb]
+        · ext r; simp; tauto
+    choose pair size good eq using split
+    let parts := terms.attach.biUnion (fun z => pair z.val z.property)
+    refine ⟨parts,?_,?_,?_⟩
+    · calc
+        parts.card ≤ ∑ z ∈ terms.attach, (pair z.val z.property).card := Finset.card_biUnion_le
+        _ ≤ ∑ _z ∈ terms.attach, 2 := Finset.sum_le_sum (fun z _ => size _ z.property)
+        _ ≤ 2 ^ (k + 1) := by simp [pow_succ]; omega
+    · intro z hz
+      obtain ⟨t,_,ht⟩ := Finset.mem_biUnion.mp hz
+      exact good t.val t.property z ht
+    · rw [← total]
+      ext r
+      simp only [parts,Finset.mem_biUnion,id_eq,Finset.mem_attach,true_and]
+      constructor
+      · rintro ⟨z,⟨t,ht⟩,hr⟩
+        exact ⟨t.val,t.property,eq t.val t.property ▸ Finset.mem_biUnion.mpr ⟨z,ht,hr⟩⟩
+      · rintro ⟨t,ht,hr⟩
+        rw [← eq t ht] at hr
+        obtain ⟨z,hz,hr⟩ := Finset.mem_biUnion.mp hr
+        exact ⟨z,⟨⟨t,ht⟩,hz⟩,hr⟩
+
+theorem separatedRows {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} {k : ℕ} (h : Reach bank w k)
+    (sep : ∀ a ∈ w, ∀ b ∈ w, a ≠ b → ¬ hull bank {a,b} ⊆ w) :
+    w.card ≤ 2 ^ k := by
+  classical
+  obtain ⟨ts,bd,free,eq⟩ := coverByMeets h
+  have sub : ∀ z ∈ ts, z ⊆ w := by
+    intro z hz r hr
+    rw [← eq]
+    exact Finset.mem_biUnion.mpr ⟨z,hz,hr⟩
+  have limit : ∀ z ∈ ts, z.card ≤ 1 := by
+    intro z hz
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    by_contra ne
+    apply sep a (sub z hz ha) b (sub z hz hb) ne
+    exact (leastHull (free z hz) (Finset.insert_subset ha (Finset.singleton_subset_iff.mpr hb))).trans (sub z hz)
+  calc
+    w.card = (ts.biUnion id).card := congrArg Finset.card eq.symm
+    _ ≤ ∑ z ∈ ts, z.card := Finset.card_biUnion_le
+    _ ≤ ∑ _z ∈ ts, 1 := Finset.sum_le_sum limit
+    _ ≤ 2 ^ k := by simpa using bd
+
+abbrev MatchRow (m : ℕ) := Sum (Fin m → Bool) (Fin m)
+
+def matchSample {m : ℕ} (r : MatchRow m) (v : Fin (m+m)) : Bool :=
+  match r with
+  | .inl choice => Fin.addCases (fun i => choice i) (fun i => !choice i) v
+  | .inr j => Fin.addCases (fun i => decide (i = j)) (fun i => decide (i = j)) v
+
+def matchTarget (m : ℕ) : Finset (MatchRow m) :=
+  Finset.univ.image Sum.inl
+
+theorem matchSeparation (m : ℕ) (a : MatchRow m) (_ha : a ∈ matchTarget m) (b : MatchRow m) (_hb : b ∈ matchTarget m) (ne : a ≠ b) :
+    ¬ hull (inputBank (fun r i => !(matchSample r i))) {a,b} ⊆ matchTarget m := by
+  obtain ⟨x,_,rfl⟩ := Finset.mem_image.mp ‹a ∈ matchTarget m›
+  obtain ⟨y,_,rfl⟩ := Finset.mem_image.mp ‹b ∈ matchTarget m›
+  have diff : ∃ j, x j ≠ y j := by
+    by_contra! same
+    exact ne (congrArg Sum.inl (funext same))
+  obtain ⟨j,hj⟩ := diff
+  have separator : Sum.inr j ∈ hull (inputBank (fun r i => !(matchSample r i))) {Sum.inl x,Sum.inl y} := by
+    apply memHull.mpr
+    intro w hw sub
+    rcases Finset.mem_insert.mp hw with rfl | input
+    · have := sub (Finset.mem_insert_self _ _)
+      simp at this
+    obtain ⟨v,_,rfl⟩ := Finset.mem_image.mp input
+    have hx := sub (Finset.mem_insert_self _ _)
+    have hy := sub (Finset.mem_insert_of_mem (Finset.mem_singleton_self _))
+    simp only [Finset.mem_filter,Finset.mem_univ,true_and,Bool.not_eq_true'] at hx hy ⊢
+    induction v using Fin.addCases with
+    | left i =>
+      simp [matchSample] at hx hy ⊢
+      rintro rfl
+      exact hj (hx.trans hy.symm)
+    | right i =>
+      simp only [matchSample,Fin.addCases_right,Bool.not_eq_false',decide_eq_false_iff_not] at hx hy ⊢
+      rintro rfl
+      exact hj (hx.trans hy.symm)
+  intro bad
+  simpa [matchTarget] using bad separator
+
+theorem matchingAndCount {m : ℕ} (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ r : MatchRow m, (!C.eval (List.ofFn (matchSample r))) = decide (r ∈ matchTarget m)) :
+    m ≤ andCost C.gates := by
+  have tested := circuitAndSearch (@matchSample m) C ok
+  have eq : (Finset.univ.filter (fun r : MatchRow m => !C.eval (List.ofFn (matchSample r)))) = matchTarget m := by
+    ext r; simp only [Finset.mem_filter,Finset.mem_univ,true_and,correct,decide_eq_true_eq]
+  rw [eq] at tested
+  have bound := separatedRows ((searchExact _ _ _).mp tested) (matchSeparation m)
+  have card : (matchTarget m).card = 2 ^ m := by
+    rw [matchTarget,Finset.card_image_of_injective _ Sum.inl_injective]
+    simp
+  rw [card] at bound
+  exact (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mp bound
+
+theorem separatedSubset {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w rows : Finset α} {k : ℕ} (h : Reach bank w k)
+    (inside : rows ⊆ w)
+    (sep : ∀ a ∈ rows, ∀ b ∈ rows, a ≠ b → ¬ hull bank {a,b} ⊆ w) :
+    rows.card ≤ 2 ^ k := by
+  classical
+  obtain ⟨ts,bd,free,eq⟩ := coverByMeets h
+  have sub : ∀ z ∈ ts, z ⊆ w := fun z hz r hr =>
+    eq ▸ Finset.mem_biUnion.mpr ⟨z,hz,hr⟩
+  have limit : ∀ z ∈ ts, (z ∩ rows).card ≤ 1 := by
+    intro z hz
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    obtain ⟨haz,har⟩ := Finset.mem_inter.mp ha
+    obtain ⟨hbz,hbr⟩ := Finset.mem_inter.mp hb
+    by_contra ne
+    apply sep a har b hbr ne
+    exact (leastHull (free z hz) (Finset.insert_subset haz (Finset.singleton_subset_iff.mpr hbz))).trans (sub z hz)
+  have all : rows ⊆ ts.biUnion (fun z => z ∩ rows) := by
+    intro r hr
+    have hw := inside hr
+    rw [← eq] at hw
+    obtain ⟨z,hz,hzr⟩ := Finset.mem_biUnion.mp hw
+    exact Finset.mem_biUnion.mpr ⟨z,hz,Finset.mem_inter.mpr ⟨hzr,hr⟩⟩
+  calc
+    rows.card ≤ _ := Finset.card_le_card all
+    _ ≤ ∑ z ∈ ts, (z ∩ rows).card := Finset.card_biUnion_le
+    _ ≤ ∑ _z ∈ ts, 1 := Finset.sum_le_sum limit
+    _ ≤ 2 ^ k := by simpa using bd
+
+theorem falseFamily {n : ℕ} (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (rows : Finset (Fin n → Bool))
+    (negative : ∀ x ∈ rows, C.eval (List.ofFn x) = false)
+    (separated : ∀ a ∈ rows, ∀ b ∈ rows, a ≠ b →
+      C.eval (List.ofFn (fun i => a i || b i)) = true) :
+    rows.card ≤ 2 ^ andCost C.gates := by
+  classical
+  let w := Finset.univ.filter (fun x : Fin n → Bool => !C.eval (List.ofFn x))
+  have run := circuitAndSearch (fun (x : Fin n → Bool) i => x i) C ok
+  apply separatedSubset ((searchExact _ _ _).mp run)
+  · intro x hx
+    simp [negative x hx]
+  · intro a ha b hb ne bad
+    let v : Fin n → Bool := fun i => a i || b i
+    have vgood : v ∈ hull (inputBank (fun (x : Fin n → Bool) i => !(x i))) {a,b} := by
+      apply memHull.mpr
+      intro z hz sub
+      rcases Finset.mem_insert.mp hz with rfl | inp
+      · have := sub (Finset.mem_insert_self _ _)
+        simp at this
+      obtain ⟨i,_,rfl⟩ := Finset.mem_image.mp inp
+      have aa := sub (Finset.mem_insert_self _ _)
+      have bb := sub (Finset.mem_insert_of_mem (Finset.mem_singleton_self _))
+      simp_all [v]
+    have contra := bad vgood
+    simp [v,separated a ha b hb ne] at contra
+
+theorem independentFamily {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (family : Finset (Finset (Fin n)))
+    (independent : ∀ s ∈ family, ∀ u ∈ s, ∀ v ∈ s, ¬ G.Adj u v)
+    (cross : ∀ s ∈ family, ∀ t ∈ family, s ≠ t → ∃ u ∈ s, ∃ v ∈ t, G.Adj u v) :
+    family.card ≤ 2 ^ andCost C.gates := by
+  classical
+  let bits (s : Finset (Fin n)) (i : Fin n) := decide (i ∈ s)
+  have inj : Function.Injective bits := by
+    intro s t e
+    ext i
+    have := congrFun e i
+    simpa [bits] using this
+  rw [← Finset.card_image_of_injective family inj]
+  apply falseFamily C ok
+  · intro x hx
+    obtain ⟨s,hs,rfl⟩ := Finset.mem_image.mp hx
+    apply Bool.eq_false_iff.mpr
+    rintro yes
+    obtain ⟨u,v,edge,hu,hv⟩ := (correct _).mp yes
+    exact independent s hs u (of_decide_eq_true hu) v (of_decide_eq_true hv) edge
+  · intro x hx y hy ne
+    obtain ⟨s,hs,rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨t,ht,rfl⟩ := Finset.mem_image.mp hy
+    obtain ⟨u,hu,v,hv,edge⟩ := cross s hs t ht (fun e => ne (congrArg bits e))
+    exact (correct _).mpr ⟨u,v,edge,by simp [bits,hu],by simp [bits,hv]⟩
+
+def IndependentRows {n : ℕ} (G : SimpleGraph (Fin n)) (s : Finset (Fin n)) : Prop :=
+  ∀ u ∈ s, ∀ v ∈ s, ¬ G.Adj u v
+
+noncomputable def maximalIndependentFamily {n : ℕ} (G : SimpleGraph (Fin n)) :
+    Finset (Finset (Fin n)) := by
+  classical
+  exact Finset.univ.filter (fun s => IndependentRows G s ∧
+    ∀ t, IndependentRows G t → s ⊆ t → t = s)
+
+theorem maximalIndependentCount {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    (maximalIndependentFamily G).card ≤ 2 ^ andCost C.gates := by
+  classical
+  have member {s} (hs : s ∈ maximalIndependentFamily G) :
+      IndependentRows G s ∧ ∀ t, IndependentRows G t → s ⊆ t → t = s := by
+    simpa [maximalIndependentFamily] using hs
+  apply independentFamily G C ok correct _ (fun s hs => (member hs).1)
+  intro s hs t ht diff
+  by_contra! no
+  have un : IndependentRows G (s ∪ t) := by
+    intro u hu v hv edge
+    rcases Finset.mem_union.mp hu with su | tu <;> rcases Finset.mem_union.mp hv with sv | tv
+    · exact (member hs).1 u su v sv edge
+    · exact no u su v tv edge
+    · exact no v sv u tu edge.symm
+    · exact (member ht).1 u tu v tv edge
+  exact diff (((member hs).2 _ un Finset.subset_union_left).symm.trans
+    ((member ht).2 _ un Finset.subset_union_right))
+
+theorem freeAvoid {α : Type} {bank : Finset (Finset α)} {w : Finset α} {r : α}
+    (free : FreeMeet bank w) (avoid : r ∉ w) : ∃ z ∈ bank, r ∉ z ∧ w ⊆ z := by
+  classical
+  obtain ⟨inputs,sub,eq⟩ := free
+  have neg : ¬ ∀ z ∈ inputs, r ∈ z := fun h => avoid ((eq r).mpr h)
+  push Not at neg
+  obtain ⟨z,hz,miss⟩ := neg
+  exact ⟨z,sub hz,miss,fun a ha => (eq a).mp ha z hz⟩
+
+theorem wireCover {α : Type} [DecidableEq α] {bank : Finset (Finset α)}
+    {w : Finset α} {k : ℕ} (h : Reach bank w k) (r : α) (avoid : r ∉ w) :
+    ∃ used ⊆ bank, used.card ≤ k+1 ∧ (∀ z ∈ used, r ∉ z) ∧ w ⊆ used.biUnion id := by
+  classical
+  have one {B : Finset (Finset α)} (hf : FreeMeet B w) (n : ℕ) :
+      ∃ used ⊆ B, used.card ≤ n+1 ∧ (∀ z ∈ used, r ∉ z) ∧ w ⊆ used.biUnion id := by
+    obtain ⟨z,hz,miss,sub⟩ := freeAvoid hf avoid
+    exact ⟨{z},by simpa using hz,by simp,by simpa using miss,by simpa using sub⟩
+  induction k generalizing bank with
+  | zero => exact one h _
+  | succ k ih =>
+    rcases h with stop | ⟨a,b,ha,hb,next⟩
+    · exact one stop _
+    obtain ⟨used,inside,bd,miss,sub⟩ := ih next
+    by_cases gate : a ∪ b ∈ used
+    · have missG := miss _ gate
+      obtain ⟨x,hx,mx,ax⟩ := freeAvoid ha (fun ar => missG (Finset.mem_union_left _ ar))
+      obtain ⟨y,hy,my,by'⟩ := freeAvoid hb (fun br => missG (Finset.mem_union_right _ br))
+      let rest := used.erase (a ∪ b)
+      have restSub : rest ⊆ bank := by
+        intro z hz
+        obtain ⟨neq,mem⟩ := Finset.mem_erase.mp hz
+        exact (Finset.mem_insert.mp (inside mem)).resolve_left neq
+      refine ⟨insert x (insert y rest),Finset.insert_subset hx (Finset.insert_subset hy restSub),?_,?_,?_⟩
+      · have hx' := Finset.card_insert_le x (insert y rest)
+        have hy' := Finset.card_insert_le y rest
+        have hlen : rest.card + 1 = used.card := Finset.card_erase_add_one gate
+        omega
+      · intro z hz
+        rcases Finset.mem_insert.mp hz with rfl | hz
+        · exact mx
+        rcases Finset.mem_insert.mp hz with rfl | hz
+        · exact my
+        exact miss _ (Finset.mem_of_mem_erase hz)
+      · intro v hv
+        obtain ⟨z,hz,hv⟩ := Finset.mem_biUnion.mp (sub hv)
+        by_cases eq : z = a ∪ b
+        · subst z
+          rcases Finset.mem_union.mp hv with h | h
+          · exact Finset.mem_biUnion.mpr ⟨x,by simp,ax h⟩
+          · exact Finset.mem_biUnion.mpr ⟨y,by simp,by' h⟩
+        · exact Finset.mem_biUnion.mpr ⟨z,by simp [rest,eq,hz],hv⟩
+    · refine ⟨used,?_,by omega,miss,sub⟩
+      intro z hz
+      exact (Finset.mem_insert.mp (inside hz)).resolve_left (fun eq => gate (eq ▸ hz))
+
+theorem sensitivityBound {n : ℕ} {ι : Type} [Fintype ι] [DecidableEq ι]
+    (sample : Option ι → Fin n → Bool) (C : Circuit) (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (base : C.eval (List.ofFn (sample none)) = false)
+    (hits : ∀ i, C.eval (List.ofFn (sample (some i))) = true)
+    (disjoint : ∀ v, sample none v = false → ∀ a b, sample (some a) v = true →
+      sample (some b) v = true → a = b) :
+    Fintype.card ι ≤ orCost C.gates + 1 := by
+  classical
+  let target := Finset.univ.filter (fun r => C.eval (List.ofFn (sample r)))
+  have run : Reach (inputBank sample) target (orCost C.gates) :=
+    (searchExact _ _ _).mp (circuitSearch sample C ok)
+  have avoid : none ∉ target := by simp [target,base]
+  obtain ⟨used,inside,size,miss,all⟩ := wireCover run none avoid
+  have limit : ∀ z ∈ used, z.card ≤ 1 := by
+    intro z hz
+    have mm := miss z hz
+    rcases Finset.mem_insert.mp (inside hz) with rfl | inp
+    · simp
+    obtain ⟨v,_,rfl⟩ := Finset.mem_image.mp inp
+    simp at mm
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    cases a with
+    | none =>
+      have := (by simpa using ha : sample none v = true)
+      simp [mm] at this
+    | some a =>
+      cases b with
+      | none =>
+        have := (by simpa using hb : sample none v = true)
+        simp [mm] at this
+      | some b => exact congrArg some (disjoint v mm a b (by simpa using ha) (by simpa using hb))
+  have lower : Finset.univ.image (some : ι → Option ι) ⊆ used.biUnion id := by
+    intro r hr
+    obtain ⟨i,_,rfl⟩ := Finset.mem_image.mp hr
+    apply all
+    simp [target,hits]
+  calc
+    Fintype.card ι = (Finset.univ.image (some : ι → Option ι)).card := by
+      rw [Finset.card_image_of_injective _ (Option.some_injective ι), Finset.card_univ]
+    _ ≤ (used.biUnion id).card := Finset.card_le_card lower
+    _ ≤ ∑ z ∈ used, z.card := Finset.card_biUnion_le
+    _ ≤ ∑ _z ∈ used, 1 := Finset.sum_le_sum limit
+    _ ≤ orCost C.gates+1 := by simpa using size
+
+theorem independentComplementOr {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (s : Finset (Fin n)) (indep : ∀ u ∈ s, ∀ v ∈ s, ¬ G.Adj u v)
+    (maximal : ∀ v ∉ s, ∃ u ∈ s, G.Adj u v) :
+    sᶜ.card ≤ orCost C.gates + 1 := by
+  classical
+  let sample : Option {v // v ∈ sᶜ} → Fin n → Bool :=
+    fun r i => match r with
+      | none => decide (i ∈ s)
+      | some v => decide (i ∈ s ∨ i = v.val)
+  have base : C.eval (List.ofFn (sample none)) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro yes
+    obtain ⟨u,v,edge,hu,hv⟩ := (correct _).mp yes
+    exact indep u (of_decide_eq_true hu) v (of_decide_eq_true hv) edge
+  have hits (v : {v // v ∈ sᶜ}) : C.eval (List.ofFn (sample (some v))) = true := by
+    obtain ⟨u,hu,edge⟩ := maximal v.val (Finset.mem_compl.mp v.property)
+    exact (correct _).mpr ⟨u,v.val,edge,by simp [sample,hu],by simp [sample]⟩
+  have sep : ∀ i, sample none i = false → ∀ a b, sample (some a) i = true →
+      sample (some b) i = true → a = b := by
+    intro i hi a b ha hb
+    simp only [sample,decide_eq_false_iff_not] at hi
+    simp [sample,hi] at ha hb
+    exact Subtype.ext (ha.symm.trans hb)
+  simpa only [Fintype.card_coe] using sensitivityBound sample C ok base hits sep
+
+theorem combinedGraphBound {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (ok : PEqualNP.MetaComplexity.Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (s : Finset (Fin n)) (indep : ∀ u ∈ s, ∀ v ∈ s, ¬ G.Adj u v)
+    (maximal : ∀ v ∉ s, ∃ u ∈ s, G.Adj u v) (a : ℕ)
+    (many : 2 ^ a < (maximalIndependentFamily G).card) :
+    sᶜ.card + a ≤ C.size := by
+  have hor := independentComplementOr G C ok correct s indep maximal
+  have hand := maximalIndependentCount G C ok correct
+  have lt : a < andCost C.gates := (Nat.pow_lt_pow_iff_right (by decide : 1 < 2)).mp (many.trans_le hand)
+  have total := gateCounts C.gates
+  change _ ≤ C.gates.length
+  omega
+
+end PEqualNP.Outside.L_meta_612_aux
+
+#print axioms PEqualNP.Outside.L_meta_612_aux.combinedGraphBound

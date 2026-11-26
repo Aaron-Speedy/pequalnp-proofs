@@ -1,0 +1,5 @@
+../.pnp/Lower9738.lean:128:2: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'PEqualNP.Outside.Lower9738.transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.Lower9738.lower37' depends on axioms: [propext, Classical.choice, Quot.sound]

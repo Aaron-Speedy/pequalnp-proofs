@@ -1,0 +1,250 @@
+../.pnp/SignedGraph9750.lean:32:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:32:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:32:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:40:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:40:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:40:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:49:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:49:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:50:77: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:49:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:50:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:59:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:59:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:59:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:68:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:68:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:69:77: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:68:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:69:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:78:80: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:78:84: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:78:84: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:87:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:87:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:88:80: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:87:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:88:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:97:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:97:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:97:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:109:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:109:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:109:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:121:80: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:121:84: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:121:84: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:130:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:130:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:131:80: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:130:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:131:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:140:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:140:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:140:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:148:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:148:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:148:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:160:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:160:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:160:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:169:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:169:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:170:77: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:169:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:170:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:179:80: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:179:84: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:179:84: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:188:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:188:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:189:80: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:188:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:189:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:198:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:198:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:198:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:207:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:207:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:208:77: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:207:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:208:77: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../.pnp/SignedGraph9750.lean:217:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:217:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:217:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:225:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:225:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:225:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:233:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:233:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:233:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/SignedGraph9750.lean:241:77: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:241:81: warning: Unused tactic linter: `grind` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SignedGraph9750.lean:241:81: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'PEqualNP.Outside.Signed9750.lowtable4095_0' depends on axioms: [propext, Classical.choice, Quot.sound]

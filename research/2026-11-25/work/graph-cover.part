@@ -1,0 +1,46 @@
+theorem coverByMeets {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} {k : ℕ} (h : Reach bank w k) :
+    ∃ terms : Finset (Finset α), terms.card ≤ 2 ^ k ∧
+      (∀ z ∈ terms, FreeMeet bank z) ∧ terms.biUnion id = w := by
+  classical
+  have one {B : Finset (Finset α)} {v : Finset α} (hf : FreeMeet B v) (s : ℕ) :
+      ∃ terms : Finset (Finset α), terms.card ≤ 2 ^ s ∧
+        (∀ z ∈ terms, FreeMeet B z) ∧ terms.biUnion id = v := by
+    refine ⟨{v},?_,by simpa using hf,by simp⟩
+    simp only [Finset.card_singleton]
+    positivity
+  induction k generalizing bank with
+  | zero => exact one h 0
+  | succ k ih =>
+    rcases h with stop | ⟨a,b,ha,hb,next⟩
+    · exact one stop _
+    obtain ⟨terms,bound,free,total⟩ := ih next
+    have split : ∀ z ∈ terms, ∃ pair : Finset (Finset α), pair.card ≤ 2 ∧
+        (∀ u ∈ pair, FreeMeet bank u) ∧ pair.biUnion id = z := by
+      intro z hz
+      rcases freeAfter (free z hz) with f | ⟨c,hc,rfl⟩
+      · exact ⟨{z},by simp,by simpa using f,by simp⟩
+      · refine ⟨{c ∩ a,c ∩ b},?_,?_,?_⟩
+        · exact (Finset.card_insert_le _ _).trans (by simp)
+        · simp [interMeet hc ha,interMeet hc hb]
+        · ext r; simp; tauto
+    choose pair size good eq using split
+    let parts := terms.attach.biUnion (fun z => pair z.val z.property)
+    refine ⟨parts,?_,?_,?_⟩
+    · calc
+        parts.card ≤ ∑ z ∈ terms.attach, (pair z.val z.property).card := Finset.card_biUnion_le
+        _ ≤ ∑ _z ∈ terms.attach, 2 := Finset.sum_le_sum (fun z _ => size _ z.property)
+        _ ≤ 2 ^ (k + 1) := by simp [pow_succ]; omega
+    · intro z hz
+      obtain ⟨t,_,ht⟩ := Finset.mem_biUnion.mp hz
+      exact good t.val t.property z ht
+    · rw [← total]
+      ext r
+      simp only [parts,Finset.mem_biUnion,id_eq,Finset.mem_attach,true_and]
+      constructor
+      · rintro ⟨z,⟨t,ht⟩,hr⟩
+        exact ⟨t.val,t.property,eq t.val t.property ▸ Finset.mem_biUnion.mpr ⟨z,ht,hr⟩⟩
+      · rintro ⟨t,ht,hr⟩
+        rw [← eq t ht] at hr
+        obtain ⟨z,hz,hr⟩ := Finset.mem_biUnion.mp hr
+        exact ⟨z,⟨⟨t,ht⟩,hz⟩,hr⟩

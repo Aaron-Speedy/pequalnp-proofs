@@ -1,0 +1,2 @@
+'SlotCount5208.slotCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SlotCount5208.threeParents' depends on axioms: [propext, Classical.choice, Quot.sound]

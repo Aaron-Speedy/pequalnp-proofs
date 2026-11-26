@@ -1,0 +1,240 @@
+./.pnp/checkpartsA/CircuitAPart0.lean:184:64: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [binD, andD, Nat.testBit_and, Nat.zero_testBit] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:193:46: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [binD, andD, Nat.testBit_and] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:44: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:48: warning: Unused tactic linter: `split` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:54: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:58: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:48: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:218:58: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+./.pnp/checkpartsA/CircuitAPart0.lean:256:90: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [negD, Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:256:105: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [negD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:275:42: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:275:57: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:277:59: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:348:8: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:348:23: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:436:89: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [z, binD, andD, orD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:477:105: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andD, a', Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:478:82: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, a', Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:478:97: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, a', Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:561:111: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [binD, andD, orD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:699:35: warning: This simp argument is unused:
+  Nat.le_add_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.testBit_shiftLeft, Nat.add_sub_cancel_left, h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:699:53: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.testBit_shiftLeft, Nat.le_add_right, h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:700:18: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h2, h3]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:701:19: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1499:16: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.le_add_left]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1499:20: warning: This simp argument is unused:
+  Nat.le_add_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1529:54: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Bool.false_eq_true, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1539:48: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [show 1 ≤ k + 3 + 1 by omega, show 2 ≤ k + 3 + 1 by omega, show 1 ≤ k + 3 by omega, decide_true,
+    Bool.xor_true, Bool.or_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1549:15: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hb, Bool.false_eq_true, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1549:19: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ha, Bool.false_eq_true, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1801:22: warning: Variable name `pairs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pairs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1801:49: warning: Variable name `r1s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r1s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1801:53: warning: Variable name `r2s` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r2s
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1960:20: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andD, Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1960:35: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1962:19: warning: This simp argument is unused:
+  Nat.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, Nat.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1962:34: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [orD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+./.pnp/checkpartsA/CircuitAPart0.lean:1977:85: warning: This simp argument is unused:
+  Nat.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [binD, andD, Nat.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

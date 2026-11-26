@@ -1,0 +1,8 @@
+../.pnp/Graph9750NotCount.lean:22:70: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [wires]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.Signed9750.fewNegations' depends on axioms: [propext, Classical.choice, Quot.sound]

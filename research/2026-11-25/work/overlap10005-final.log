@@ -1,0 +1,2 @@
+'PEqualNP.Outside.Matrix10005.someTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.Matrix10005.manyLargeOrFourfold' depends on axioms: [propext, Classical.choice, Quot.sound]

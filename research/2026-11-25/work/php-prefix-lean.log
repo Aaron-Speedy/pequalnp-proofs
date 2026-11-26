@@ -1,0 +1,7 @@
+PEqualNP/Outside/L_pcx_166.lean:93:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [ClauseSat] at bad
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+PEqualNP/Outside/L_pcx_166.lean:325:8: warning: declaration uses `sorry`

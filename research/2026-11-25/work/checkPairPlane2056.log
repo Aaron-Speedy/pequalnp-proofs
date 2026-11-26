@@ -1,0 +1,1 @@
+'PEqualNP.Outside.PairPlane2056.exactMinimum' depends on axioms: [propext, Classical.choice, Quot.sound]

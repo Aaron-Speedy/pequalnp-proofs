@@ -1,0 +1,50 @@
+../.pnp/Lift9738.lean:12:43: error: failed to synthesize
+  Decidable
+    ({ op := GateOp.or, inputs := [0, 1] }.op ∈ {GateOp.and, GateOp.or} ∧
+      { op := GateOp.or, inputs := [0, 1] }.inputs.length ≤ 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../.pnp/Lift9738.lean:12:43: error: failed to synthesize
+  Decidable
+    ({ op := GateOp.or, inputs := [3, 9] }.op ∈ {GateOp.and, GateOp.or} ∧
+      { op := GateOp.or, inputs := [3, 9] }.inputs.length ≤ 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../.pnp/Lift9738.lean:12:43: error: Expected type must not contain free variables
+  { op := GateOp.or, inputs := [26 + B.size, 26 + B.size + 1] }.op ∈ {GateOp.and, GateOp.or} ∧
+    { op := GateOp.or, inputs := [26 + B.size, 26 + B.size + 1] }.inputs.length ≤ 2
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../.pnp/Lift9738.lean:12:43: error: Expected type must not contain free variables
+  { op := GateOp.and, inputs := [13, 26 + B.size + 2] }.op ∈ {GateOp.and, GateOp.or} ∧
+    { op := GateOp.and, inputs := [13, 26 + B.size + 2] }.inputs.length ≤ 2
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../.pnp/Lift9738.lean:12:43: error: Expected type must not contain free variables
+  { op := GateOp.or, inputs := [B.output, 26 + B.size + 3] }.op ∈ {GateOp.and, GateOp.or} ∧
+    { op := GateOp.or, inputs := [B.output, 26 + B.size + 3] }.inputs.length ≤ 2
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../.pnp/Lift9738.lean:34:2: error: Type mismatch: After simplification, term
+  t
+ has type
+  (List.foldl step W (trail (26 + B.size) B.output)).getD (26 + B.size + 4) false =
+    (W.getD B.output false ||
+      W.getD 13 false && (W.getD 0 false || W.getD 1 false || (W.getD 3 false || W.getD 9 false)))
+but is expected to have type
+  (List.foldl step (List.foldl step (List.ofFn x) B.gates) (trail (26 + B.size) B.output)).getD (ext B).output false =
+    (B.eval (List.ofFn x) || x 13 && (x 0 || x 1 || (x 3 || x 9)))
+../.pnp/Lift9738.lean:59:51: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (List.foldl ds W (trail (26 + B.size) B.output)).getD (26 + B.size + 4) 0
+in the target expression
+  (List.foldl ds W (trail (26 + B.size) B.output)).getD (ext B).output 0 = max (W.getD B.output 0) 1
+
+B : Circuit
+h : B.output < 26 + B.size
+W : List ℕ := List.foldl ds (base 26) B.gates
+len : W.length = 26 + B.size
+old : ∀ (i : Fin 26), W.getD (↑i) 0 = (base 26).getD (↑i) 0
+t :
+  (List.foldl ds W (trail (26 + B.size) B.output)).getD (26 + B.size + 4) 0 =
+    max (W.getD B.output 0) (W.getD 13 0 + max (max (W.getD 0 0) (W.getD 1 0)) (max (W.getD 3 0) (W.getD 9 0)))
+⊢ (List.foldl ds W (trail (26 + B.size) B.output)).getD (ext B).output 0 = max (W.getD B.output 0) 1

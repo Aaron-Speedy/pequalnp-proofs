@@ -1,0 +1,6 @@
+mode 0 gates 64 positive 52 maximal negative 704
+mode 1 gates 64 positive 52 maximal negative 704
+mode 2 gates 64 positive 52 maximal negative 704
+mode 3 gates 64 positive 52 maximal negative 704
+distinct output nodes 1924
+exact intersections 2496 best raw gate count 68

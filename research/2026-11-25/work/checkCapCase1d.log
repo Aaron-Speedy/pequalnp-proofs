@@ -1,0 +1,181 @@
+../.pnp/CapCase1.lean:16:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:17:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test0._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:19:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:20:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test1._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:23:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test2._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:25:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:26:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test3._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:28:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:29:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test4._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:31:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:32:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test5._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:34:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:35:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test6._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:37:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:38:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test7._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:40:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:41:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test8._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:43:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:44:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test9._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:46:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:47:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test10._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:49:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:50:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test11._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:52:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:53:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test12._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:55:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:56:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test13._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+../.pnp/CapCase1.lean:58:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../.pnp/CapCase1.lean:59:2: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) declaration has free variables 'CapCase1.test14._proof_1_1', expression: 
+    of_decide_eq_true (id (Eq.refl true))
+'CapCase1.excludes' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

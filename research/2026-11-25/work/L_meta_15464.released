@@ -1,0 +1,25 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_15464_aux
+
+open PEqualNP.CircuitLowerBounds
+
+def witness : Circuit :=
+  ⟨[⟨.or, [1, 2]⟩, ⟨.and, [5, 6]⟩, ⟨.and, [1, 2]⟩,
+    ⟨.or, [4, 7]⟩, ⟨.and, [0, 9]⟩, ⟨.or, [3, 7]⟩,
+    ⟨.or, [8, 10]⟩, ⟨.and, [11, 12]⟩], 13⟩
+
+theorem witness_monotone : PEqualNP.MetaComplexity.Monotone2 witness := by
+  simp [witness, PEqualNP.MetaComplexity.Monotone2]
+
+theorem witness_size : witness.size = 8 := by decide
+
+theorem witness_eval : ∀ x : Fin 6 → Bool,
+    witness.eval (List.ofFn x) = Nat.testBit (3941132520 * 2 ^ 32 + 3925917696)
+      (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0) := by decide +kernel
+
+end PEqualNP.Outside.L_meta_15464_aux
+
+theorem PEqualNP.Outside.L_meta_15464 : (¬ (∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (3941132520 * 2 ^ 32 + 3925917696) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (3941132520 * 2 ^ 32 + 3925917696) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0))) := by
+  sorry

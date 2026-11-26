@@ -1,0 +1,15 @@
+../.pnp/Reflect5208.lean:53:67: warning: This simp argument is unused:
+  List.map_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [init, Function.comp_def, readD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/Reflect5208.lean:53:81: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [init, List.map_ofFn, readD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Terminated                 lean --root=../.pnp -j 1 -o ../.pnp/Witness5208.olean ../.pnp/Witness5208.lean

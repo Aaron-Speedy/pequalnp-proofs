@@ -1,0 +1,15 @@
+../.pnp/transfer-test.lean:205:56: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.filter_cons, decide_eq_false hlt, List.map_cons, List.any_cons, id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/transfer-test.lean:322:11: error: Application type mismatch: The argument
+  agrees
+has type
+  ∀ (x : Fin 6 → Bool), (!decide ((target fun i => !x (swapInputs i)) = fG x)) = true
+but is expected to have type
+  ∀ (x : Fin 6 → Bool), (!target fun i => !x (swapInputs i)) = fG x
+in the application
+  funext agrees

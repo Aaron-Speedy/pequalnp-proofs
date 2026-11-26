@@ -1,0 +1,106 @@
+../.pnp/Lower9738.lean:25:46: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+../.pnp/Lower9738.lean:41:46: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+../.pnp/Lower9738.lean:126:2: error: 'change' tactic failed, pattern
+  (x 1 && x 9 || x 1 && x 13 || x 1 && x 7 || x 3 && x 11 || x 3 && x 12 || x 3 && x 7 || x 0 && x 8 || x 0 && x 10 ||
+                            x 6 && x 11 ||
+                          x 6 && x 8 ||
+                        x 6 && x 9 ||
+                      x 2 && x 8 ||
+                    x 2 && x 12 ||
+                  x 2 && x 13 ||
+                x 5 && x 9 ||
+              x 5 && x 12 ||
+            x 5 && x 10 ||
+          x 4 && x 11 ||
+        x 4 && x 10 ||
+      decide ((x 4 && x 13) = ?m.89)) =
+    true
+is not definitionally equal to target
+  f11 (x ∘ renameV) = target x
+../.pnp/Lower9738.lean:145:42: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f11 (?x ∘ renameV)
+in the target expression
+  (fun x => f11 (x ∘ renameV)) x = true ↔
+    ∃ u v,
+      (↑u, ↑v) ∈
+          [(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 12), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10),
+            (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] ∧
+        x u = true ∧ x v = true
+
+known :
+  ¬∃ C,
+      Monotone2 C ∧
+        C.size ≤ 25 ∧
+          ∀ (x : Fin 14 → Bool),
+            C.eval (List.ofFn x) = true ↔
+              ∃ u v,
+                (↑u, ↑v) ∈
+                    [(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 12), (2, 13), (3, 7), (3, 11), (3, 12),
+                      (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] ∧
+                  x u = true ∧ x v = true
+C : Circuit
+mono : Monotone2 C
+size : C.size ≤ 36
+ev :
+  ∀ (x : Fin 25 → Bool),
+    C.eval (List.ofFn x) = true ↔
+      ∃ u v,
+        ((↑u, ↑v) ∈
+            let y :=
+              let y :=
+                let y := [(11, 22), (11, 23), (12, 15), (12, 21), (12, 23), (12, 24)];
+                (10, 13) :: (10, 19) :: (10, 21) :: (10, 22) :: (11, 14) :: (11, 20) :: y;
+              let y := (8, 19) :: (8, 20) :: (8, 24) :: (9, 18) :: (9, 20) :: (9, 21) :: y;
+              (6, 22) :: (7, 16) :: (7, 18) :: (7, 19) :: (7, 23) :: (8, 17) :: y;
+            let y :=
+              let y := (5, 16) :: (5, 17) :: (5, 21) :: (6, 15) :: (6, 17) :: (6, 18) :: y;
+              (3, 19) :: (4, 13) :: (4, 15) :: (4, 16) :: (4, 20) :: (5, 14) :: y;
+            let y := (2, 13) :: (2, 14) :: (2, 18) :: (2, 24) :: (3, 14) :: (3, 15) :: y;
+            (0, 16) :: (0, 22) :: (0, 24) :: (1, 13) :: (1, 17) :: (1, 23) :: y) ∧
+          x u = true ∧ x v = true
+h0 : MSize 25 f0 C.size
+s1 : ℕ
+size1 : s1 + 1 ≤ C.size
+h1 : MSize 25 f1 s1
+s2 : ℕ
+size2 : s2 + 1 ≤ s1
+h2 : MSize 25 f2 s2
+s3 : ℕ
+size3 : s3 + 1 ≤ s2
+h3 : MSize 25 f3 s3
+s4 : ℕ
+size4 : s4 + 1 ≤ s3
+h4 : MSize 25 f4 s4
+s5 : ℕ
+size5 : s5 + 1 ≤ s4
+h5 : MSize 25 f5 s5
+s6 : ℕ
+size6 : s6 + 1 ≤ s5
+h6 : MSize 25 f6 s6
+s7 : ℕ
+size7 : s7 + 1 ≤ s6
+h7 : MSize 25 f7 s7
+s8 : ℕ
+size8 : s8 + 1 ≤ s7
+h8 : MSize 25 f8 s8
+s9 : ℕ
+size9 : s9 + 1 ≤ s8
+h9 : MSize 25 f9 s9
+s10 : ℕ
+size10 : s10 + 1 ≤ s9
+h10 : MSize 25 f10 s10
+s11 : ℕ
+size11 : s11 + 1 ≤ s10
+h11 : MSize 25 f11 s11
+D : Circuit
+hm : Monotone2 D
+hs : D.size ≤ s11
+he : ∀ (x : Fin 14 → Bool), D.eval (List.ofFn x) = (fun x => f11 (x ∘ renameV)) x
+x : Fin 14 → Bool
+⊢ (fun x => f11 (x ∘ renameV)) x = true ↔
+    ∃ u v,
+      (↑u, ↑v) ∈
+          [(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 12), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10),
+            (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] ∧
+        x u = true ∧ x v = true
+'PEqualNP.Outside.Lower9738.transfer' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

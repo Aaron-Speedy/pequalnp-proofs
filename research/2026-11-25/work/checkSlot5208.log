@@ -1,0 +1,7 @@
+../.pnp/SlotCount5208.lean:30:56: error: Type mismatch
+  card_union_le
+has type
+  ∀ (s t : Finset ?m.312), #(s ∪ t) ≤ #s + #t
+but is expected to have type
+  #(image left Lᶜ ∪ image right Rᶜ) ≤ #(image left Lᶜ) + #(image right Rᶜ)
+'SlotCount5208.slotCount' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

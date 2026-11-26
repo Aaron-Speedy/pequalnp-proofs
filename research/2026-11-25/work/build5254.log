@@ -1,0 +1,1425 @@
+⚠ [18247/18261] Replayed PEqualNP.Defs.Base
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18248/18261] Ran PEqualNP.Defs.Base:irArts
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18251/18261] Replayed PEqualNP.Defs.CircuitLowerBounds
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18252/18261] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18253/18261] Replayed PEqualNP.Defs.MetaComplexity
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18254/18261] Ran PEqualNP.Defs.MetaComplexity:irArts
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18255/18261] Replayed PEqualNP.Defs.MetaComplexityLocal
+warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18256/18261] Ran PEqualNP.Defs.MetaComplexityLocal:irArts
+warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18257/18261] Replayed PEqualNP.Defs.MetaComplexitySparse
+warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18258/18261] Ran PEqualNP.Defs.MetaComplexitySparse:irArts
+warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18269/18407] Replayed PEqualNP.Defs.ProofComplexity
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18270/18407] Ran PEqualNP.Defs.ProofComplexity:irArts
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18271/18407] Replayed PEqualNP.Defs.ProofComplexityLin
+warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18272/18407] Ran PEqualNP.Defs.ProofComplexityLin:irArts
+warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18275/18407] Replayed PEqualNP.Defs.ProofComplexityLift
+warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18276/18407] Ran PEqualNP.Defs.ProofComplexityLift:irArts
+warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18281/18407] Replayed PEqualNP.Defs.ProofComplexityBit
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18282/18407] Ran PEqualNP.Defs.ProofComplexityBit:irArts
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18283/18407] Replayed PEqualNP.Defs.ProofComplexityPC
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18284/18407] Ran PEqualNP.Defs.ProofComplexityPC:irArts
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18285/18407] Replayed PEqualNP.Defs.ProofComplexityMoment
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18286/18407] Ran PEqualNP.Defs.ProofComplexityMoment:irArts
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18287/18407] Replayed PEqualNP.Defs.ProofComplexityChain
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18288/18407] Ran PEqualNP.Defs.ProofComplexityChain:irArts
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18291/18407] Replayed PEqualNP.Defs.Search
+warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18292/18407] Ran PEqualNP.Defs.Search:irArts
+warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18293/18407] Replayed PEqualNP.Defs.SearchQ
+warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18294/18407] Ran PEqualNP.Defs.SearchQ:irArts
+warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18303/18407] Replayed PEqualNP.Defs.SearchSoS
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Data.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean:4:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+⚠ [18304/18407] Ran PEqualNP.Defs.SearchSoS:irArts
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Data.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18305/18407] Replayed PEqualNP.Defs.Gct
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.Monad` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homogeneous` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18306/18407] Ran PEqualNP.Defs.Gct:irArts
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.Monad` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homogeneous` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18309/18407] Replayed PEqualNP.Defs.Algebraic
+warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18310/18407] Ran PEqualNP.Defs.Algebraic:irArts
+warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18313/18407] Replayed PEqualNP.Defs.RiffleRank
+warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18314/18407] Ran PEqualNP.Defs.RiffleRank:irArts
+warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18317/18407] Replayed PEqualNP.Defs.CoverPromise
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18318/18407] Ran PEqualNP.Defs.CoverPromise:irArts
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18319/18407] Replayed PEqualNP.Defs.SingleLevel
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Sublists` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Dedup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18320/18407] Ran PEqualNP.Defs.SingleLevel:irArts
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Sublists` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Dedup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18321/18407] Replayed PEqualNP.Defs.DeMorganFormula
+warning: PEqualNP/Defs/DeMorganFormula.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18322/18407] Ran PEqualNP.Defs.DeMorganFormula:irArts
+warning: PEqualNP/Defs/DeMorganFormula.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18323/18407] Replayed PEqualNP.Defs.MetaComplexityTypedRank
+warning: PEqualNP/Defs/MetaComplexityTypedRank.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18324/18407] Ran PEqualNP.Defs.MetaComplexityTypedRank:irArts
+warning: PEqualNP/Defs/MetaComplexityTypedRank.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18325/18407] Replayed PEqualNP.Defs.Pebble
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Lattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Set.Function` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.List.Chain` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18326/18407] Ran PEqualNP.Defs.Pebble:irArts
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Lattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Set.Function` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.List.Chain` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18327/18407] Replayed PEqualNP.Defs.Subdivision
+warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18328/18407] Ran PEqualNP.Defs.Subdivision:irArts
+warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18329/18407] Replayed PEqualNP.Defs.AndCountCircuit
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18330/18407] Ran PEqualNP.Defs.AndCountCircuit:irArts
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18333/18407] Replayed PEqualNP.Defs.CoLevel
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.MvPolynomial.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18334/18407] Ran PEqualNP.Defs.CoLevel:irArts
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.MvPolynomial.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18335/18407] Replayed PEqualNP.Defs.Peelable
+warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18336/18407] Ran PEqualNP.Defs.Peelable:irArts
+warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18337/18407] Replayed PEqualNP.Defs.NestedCoverCircuit
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18338/18407] Ran PEqualNP.Defs.NestedCoverCircuit:irArts
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18339/18407] Replayed PEqualNP.Defs.LiteralPartition
+warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18340/18407] Ran PEqualNP.Defs.LiteralPartition:irArts
+warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18341/18407] Replayed PEqualNP.Defs.MinimumComplex
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18342/18407] Ran PEqualNP.Defs.MinimumComplex:irArts
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18343/18407] Replayed PEqualNP.Defs.PendantBit
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18344/18407] Ran PEqualNP.Defs.PendantBit:irArts
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18345/18407] Replayed PEqualNP.Defs.BorrowedCoverCircuit
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18346/18407] Ran PEqualNP.Defs.BorrowedCoverCircuit:irArts
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18349/18407] Replayed PEqualNP.Defs.CircuitMoves
+warning: PEqualNP/Defs/CircuitMoves.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18350/18407] Ran PEqualNP.Defs.CircuitMoves:irArts
+warning: PEqualNP/Defs/CircuitMoves.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18351/18407] Replayed PEqualNP.Defs.LowMerge
+warning: PEqualNP/Defs/LowMerge.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18352/18407] Ran PEqualNP.Defs.LowMerge:irArts
+warning: PEqualNP/Defs/LowMerge.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18353/18407] Replayed PEqualNP.Defs.NewLowMerge
+warning: PEqualNP/Defs/NewLowMerge.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18354/18407] Ran PEqualNP.Defs.NewLowMerge:irArts
+warning: PEqualNP/Defs/NewLowMerge.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18355/18407] Replayed PEqualNP.Defs.AffinePlane
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Algebra.Field.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18356/18407] Ran PEqualNP.Defs.AffinePlane:irArts
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Algebra.Field.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18357/18407] Replayed PEqualNP.Defs.EdgeOwnership
+warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18358/18407] Ran PEqualNP.Defs.EdgeOwnership:irArts
+warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18359/18407] Replayed PEqualNP.Defs.PencilGate
+warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18360/18407] Ran PEqualNP.Defs.PencilGate:irArts
+warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18361/18407] Replayed PEqualNP.Defs.BlindGate
+warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18362/18407] Ran PEqualNP.Defs.BlindGate:irArts
+warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18363/18407] Replayed PEqualNP.Defs.BicliqueBlockCost
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.ConditionallyCompleteLattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18364/18407] Ran PEqualNP.Defs.BicliqueBlockCost:irArts
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.ConditionallyCompleteLattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18365/18407] Replayed PEqualNP.Defs.SharingOrder
+warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18366/18407] Ran PEqualNP.Defs.SharingOrder:irArts
+warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18367/18407] Replayed PEqualNP.Defs.NotPremium
+warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Order.WithBot` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18368/18407] Ran PEqualNP.Defs.NotPremium:irArts
+warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Order.WithBot` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18369/18407] Replayed PEqualNP.Defs.NotBracket
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Monotone.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Fin.Tuple.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18370/18407] Ran PEqualNP.Defs.NotBracket:irArts
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Monotone.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Fin.Tuple.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18373/18407] Replayed PEqualNP.Defs.SplitCount
+warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18374/18407] Ran PEqualNP.Defs.SplitCount:irArts
+warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18385/18407] Replayed PEqualNP.Defs.TopForm
+warning: PEqualNP/Defs/TopForm.lean:99:4: The namespace `TopForm` is duplicated in the declaration `PEqualNP.TopForm.TopForm`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+⚠ [18387/18407] Replayed PEqualNP.Defs.SyntacticMultilinear
+warning: PEqualNP/Defs/SyntacticMultilinear.lean: imports `Mathlib.Data.Finset.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18388/18407] Ran PEqualNP.Defs.SyntacticMultilinear:irArts
+warning: PEqualNP/Defs/SyntacticMultilinear.lean: imports `Mathlib.Data.Finset.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18391/18407] Replayed PEqualNP.Defs.HeptadCover
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18392/18407] Ran PEqualNP.Defs.HeptadCover:irArts
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18393/18407] Replayed PEqualNP.Defs.ReadK
+warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18394/18407] Ran PEqualNP.Defs.ReadK:irArts
+warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18395/18407] Replayed PEqualNP.Defs.GenericRejection
+warning: PEqualNP/Defs/GenericRejection.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18396/18407] Ran PEqualNP.Defs.GenericRejection:irArts
+warning: PEqualNP/Defs/GenericRejection.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18416/18423] Replayed PEqualNP.Defs.Represents
+warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Represents.lean:56:4: The namespace `Represents` is duplicated in the declaration `PEqualNP.Represents.Represents`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+⚠ [18417/18423] Ran PEqualNP.Defs.Represents:irArts
+warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18422/18423] Built PEqualNP.Outside.L_meta_5254 (112s)
+warning: PEqualNP/Outside/L_meta_5254.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_5254.lean:42:53: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LinearOp.eval, LinearOp.edge, and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PEqualNP/Outside/L_meta_5254.lean:255:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:256:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:259:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:261:12: This simp argument is unused:
+  List.getElem?_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PEqualNP/Outside/L_meta_5254.lean:311:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:311:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:312:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:312:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:336:17: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:337:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:360:17: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:365:17: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:390:75: unused name: h2
+warning: PEqualNP/Outside/L_meta_5254.lean:390:78: unused name: h3
+warning: PEqualNP/Outside/L_meta_5254.lean:417:75: unused name: h2
+warning: PEqualNP/Outside/L_meta_5254.lean:417:78: unused name: h3
+warning: PEqualNP/Outside/L_meta_5254.lean:445:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:447:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:447:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:456:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:456:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:471:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:473:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:487:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:489:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:489:32: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:472:44: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Dg, List.getD_eq_getElem?_getD, List.getElem?_range, h, lineMarks]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PEqualNP/Outside/L_meta_5254.lean:472:63: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Dg, List.getD_eq_getElem?_getD, List.getElem?_map, h, lineMarks]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PEqualNP/Outside/L_meta_5254.lean:509:15: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:513:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:524:15: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:525:13: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:525:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:530:15: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:531:13: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:531:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:536:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:537:13: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:537:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:542:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:543:13: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:543:25: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:954:2: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: PEqualNP/Outside/L_meta_5254.lean:1201:64: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1220:68: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1229:68: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1238:68: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1244:68: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1268:61: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1280:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1288:68: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1300:64: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1320:66: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1336:70: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1344:72: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1359:72: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1360:72: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1375:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1375:37: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1396:20: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1396:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1423:20: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1423:39: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1440:70: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1449:70: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1487:63: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1493:27: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1544:67: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1547:69: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1555:69: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1558:71: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1564:71: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1567:73: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1579:73: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1582:75: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1602:72: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:1603:72: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_5254.lean:2361:37: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [ho, LinearOp.eval] at eg
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PEqualNP/Outside/L_meta_5254.lean:2464:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3296:4: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3298:4: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3301:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3303:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3307:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3310:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3316:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3325:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3328:4: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3330:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.Ext.trans`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3330:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3335:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.Ext.valid`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3335:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3338:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.Ext.stable`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3338:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3342:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3349:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3355:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.merge_ext`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3355:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3358:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.merge_ok`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3358:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3379:33: This simp argument is unused:
+  Function.update_of_ne he
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Back.merge, Back.eval, he, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3370:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3392:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3402:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3408:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3417:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3430:4: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3437:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3464:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3481:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3500:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3505:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3511:8: automatically included section variable(s) unused in theorem `_private.PEqualNP.Outside.L_meta_5254.0.PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.pull_mono`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3511:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3517:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3535:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3554:18: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3556:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3564:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3582:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.update_budget`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3582:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3594:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.erase_live`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3594:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3600:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.erase_idle`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3600:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3605:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.combine_or_zero_left`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3605:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3608:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.combine_or_zero_right`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3608:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3611:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.combine_or_one_gate`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3611:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3614:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3629:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3641:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.fold_budget`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3641:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3652:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.fold_budget_count`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3652:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3671:4: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3675:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3684:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3690:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.scale_length`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3690:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3700:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.scale_zero_left`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3700:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3707:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3725:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3732:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3756:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3760:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcBudget.support_le_of_demanded`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3760:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3796:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcAssembly.program_exists`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3796:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3802:21: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3803:21: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3806:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3809:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcAssembly.Program.forward_one`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3809:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3824:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3831:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3840:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3863:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcAssembly.baseline_row`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3863:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3873:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3899:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.skipped_step`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3899:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3910:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3916:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.Cut.split_sweep`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3916:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3921:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3929:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.scale_shape`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3929:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3943:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3952:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3985:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.cut_active_iff`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:3985:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4004:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4026:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.compilePrefix_dsts`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4026:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4032:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4044:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4077:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4072:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcFirst.choose_rows`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4072:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4091:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4102:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4119:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4178:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.RefPath.refl`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4178:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4183:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.RefPath.trans`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4183:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4188:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.RefPath.append`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4188:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4200:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4203:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4221:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4229:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4246:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.ArcPhysicalTerminal.bin_and`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4246:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4255:0: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_5254_aux.ArcPhysicalTerminal.bin_or`:
+  zinst
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit zinst [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4255:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4264:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4272:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4280:6: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4297:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4320:8: automatically included section variable(s) unused in theorem `_private.PEqualNP.Outside.L_meta_5254.0.PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.clear_reg_of_ne`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4320:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4323:8: automatically included section variable(s) unused in theorem `_private.PEqualNP.Outside.L_meta_5254.0.PEqualNP.Outside.L_meta_5254_aux.PlaneArcEmit.scaled_reg_of_ne`:
+  [Fact (0 = Ref.zero)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fact (0 = Ref.zero)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4323:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4326:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4351:16: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4374:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4391:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4429:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+warning: PEqualNP/Outside/L_meta_5254.lean:4466:8: The instance assumption `[Zero Ref]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Zero Ref := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`
+⚠ [18423/18423] Ran PEqualNP.Outside.L_meta_5254:irArts
+warning: PEqualNP/Outside/L_meta_5254.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (18423 jobs).

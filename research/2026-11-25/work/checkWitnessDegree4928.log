@@ -1,0 +1,10 @@
+../.pnp/WitnessDegree4928.lean:19:2: warning: Unused tactic linter: `change (C28.gates[j]).op = .and ∨ (C28.gates[j]).op = .or` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/WitnessDegree4928.lean:42:2: warning: Unused tactic linter: `change (C29.gates[j]).op = .and ∨ (C29.gates[j]).op = .or` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Threshold4928.computes28' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Threshold4928.marks28' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Threshold4928.computes29' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Threshold4928.marks29' depends on axioms: [propext, Classical.choice, Quot.sound]

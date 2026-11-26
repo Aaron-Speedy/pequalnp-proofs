@@ -1,0 +1,14 @@
+mode 2 gates 64 positive 52 maximal negative 704
+root 78 checked 7
+root 79 checked 21
+root 80 checked 38
+root 81 checked 56
+root 82 checked 74
+root 83 checked 92
+root 84 checked 110
+root 85 checked 128
+root 86 checked 146
+root 87 checked 164
+root 88 checked 182
+root 89 checked 200
+exhausted 200 windows of 5 gates

@@ -1,0 +1,1 @@
+'PEqualNP.Outside.Plane9738.bothSides' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,87 @@
+def meetRows {α : Type} [Fintype α] [DecidableEq α] (ss : Finset (Finset α)) : Finset α :=
+  Finset.univ.filter (fun r => ∀ s ∈ ss, r ∈ s)
+
+def meets {α : Type} [Fintype α] [DecidableEq α] (bank : Finset (Finset α)) :
+    Finset (Finset α) := bank.powerset.image meetRows
+
+theorem memMeets {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} : w ∈ meets bank ↔ FreeMeet bank w := by
+  simp only [meets,Finset.mem_image,Finset.mem_powerset,FreeMeet]
+  constructor
+  · rintro ⟨s,hs,rfl⟩
+    exact ⟨s,hs,by simp [meetRows]⟩
+  · rintro ⟨s,hs,eq⟩
+    exact ⟨s,hs,by ext r; simp [meetRows,eq r]⟩
+
+def searchOr {α : Type} [Fintype α] [DecidableEq α]
+    (bank : Finset (Finset α)) (target : Finset α) : ℕ → Bool
+  | 0 => decide (hull bank target = target)
+  | 1 => target.powerset.toList.any fun s =>
+      decide (target = hull bank target ∩ (hull bank s ∪ hull bank (target \\ s)))
+  | k+2 =>
+      let wires := (meets bank).toList
+      decide (hull bank target = target) || wires.any (fun a =>
+        wires.any (fun b => searchOr (insert (a ∪ b) bank) target (k+1)))
+
+theorem hullEqFree {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} : hull bank w = w ↔ FreeMeet bank w := by
+  constructor
+  · intro h
+    exact h ▸ hullFree bank w
+  · intro h
+    exact Finset.Subset.antisymm (leastHull h (by rfl)) (insideHull bank w)
+
+theorem freeAfter {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w u : Finset α} (h : FreeMeet (insert u bank) w) :
+    FreeMeet bank w ∨ ∃ c, FreeMeet bank c ∧ w = c ∩ u := by
+  obtain ⟨ss,sub,eq⟩ := h
+  by_cases hu : u ∈ ss
+  · right
+    let rest := ss.erase u
+    have hs : rest ⊆ bank := by
+      intro x hx
+      obtain ⟨hn,hm⟩ := Finset.mem_erase.mp hx
+      exact (Finset.mem_insert.mp (sub hm)).resolve_left hn
+    refine ⟨meetRows rest, memMeets.mp (Finset.mem_image.mpr ⟨rest,Finset.mem_powerset.mpr hs,rfl⟩),?_⟩
+    ext r
+    simp only [eq r, Finset.mem_inter, meetRows, Finset.mem_filter, Finset.mem_univ, true_and]
+    constructor
+    · intro hall
+      exact ⟨fun z hz => hall z (Finset.mem_of_mem_erase hz),hall _ hu⟩
+    · rintro ⟨h1,h2⟩ z hz
+      by_cases hit : z = u
+      · exact hit ▸ h2
+      · exact h1 z (Finset.mem_erase.mpr ⟨hit,hz⟩)
+  · left
+    refine ⟨ss,?_,eq⟩
+    intro z hz
+    exact (Finset.mem_insert.mp (sub hz)).resolve_left (fun e => hu (e ▸ hz))
+
+theorem reachOne {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} :
+    Reach bank w 1 ↔ ∃ a b c, FreeMeet bank a ∧ FreeMeet bank b ∧ FreeMeet bank c ∧ w = c ∩ (a ∪ b) := by
+  have easy (h : FreeMeet bank w) : ∃ a b c, FreeMeet bank a ∧ FreeMeet bank b ∧ FreeMeet bank c ∧ w = c ∩ (a ∪ b) :=
+    ⟨w,w,w,h,h,h,by simp⟩
+  constructor
+  · rintro (hw | ⟨a,b,ha,hb,hw⟩)
+    rcases freeAfter hw with h | ⟨c,hc,eq⟩
+    · exact easy h
+    · exact ⟨a,b,c,ha,hb,hc,eq⟩
+    exact easy hw
+  · rintro ⟨a,b,c,ha,hb,hc,rfl⟩
+    exact Or.inr ⟨a,b,ha,hb,interMeet (widenMeet (Finset.subset_insert _ _) hc)
+      (meetOfMember (Finset.mem_insert_self _ _))⟩
+
+theorem searchExact {α : Type} [Fintype α] [DecidableEq α] (k : ℕ)
+    (bank : Finset (Finset α)) (w : Finset α) : searchOr bank w k = true ↔ Reach bank w k := by
+  induction k generalizing bank with
+  | zero => simp [searchOr,Reach,hullEqFree]
+  | succ k ih =>
+    cases k with
+    | zero => simpa [searchOr,List.any_eq_true,Finset.mem_powerset] using
+        (reachOne (bank := bank) (w := w)).trans (finalOr bank w) |>.symm
+    | succ k =>
+      simp only [searchOr,Bool.or_eq_true,decide_eq_true_eq,List.any_eq_true,
+        Finset.mem_toList,memMeets,hullEqFree,ih]
+      rfl
+

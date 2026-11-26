@@ -1,0 +1,10 @@
+../.pnp/GuardRows7893.lean:21:44: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/GuardRows7893.lean:21:48: warning: Unused tactic linter: `decide +kernel` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/GuardRows7893.lean:21:48: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'PEqualNP.Outside.GuardRows7893.guardBound' depends on axioms: [propext, Quot.sound]

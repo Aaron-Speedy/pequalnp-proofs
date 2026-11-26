@@ -1,0 +1,14 @@
+mode 3 gates 64 positive 52 maximal negative 704
+root 78 checked 5
+root 79 checked 16
+root 80 checked 31
+root 81 checked 47
+root 82 checked 63
+root 83 checked 79
+root 84 checked 95
+root 85 checked 111
+root 86 checked 127
+root 87 checked 143
+root 88 checked 159
+root 89 checked 175
+exhausted 175 windows of 5 gates

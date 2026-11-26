@@ -1,0 +1,39 @@
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+PEqualNP/Outside/L_meta_612.lean:120:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:288:4: error: unsolved goals
+case pos
+α : Type
+inst✝¹ : Fintype α
+inst✝ : DecidableEq α
+n : ℕ
+sample : α → Fin n → Bool
+C : Circuit
+ok : MetaComplexity.Monotone2 C
+wires : α → List Bool := fun r => List.ofFn (sample r)
+hw : ∀ (r : α), (wires r).length = n
+zero : FreeMeet (inputBank sample) ∅
+i : ℕ
+hi : i < n
+r : α
+⊢ sample r ⟨i, hi⟩ = (if h : i < n then some (sample r ⟨i, h⟩) else none).getD false
+PEqualNP/Outside/L_meta_612.lean:293:22: warning: This simp argument is unused:
+  List.getD_eq_getElem _ _ (show i < (wires r).length by rwa [hw])
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [col, wires]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:306:8: warning: declaration uses `sorry`

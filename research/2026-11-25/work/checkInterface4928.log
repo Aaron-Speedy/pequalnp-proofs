@@ -1,0 +1,7 @@
+../.pnp/Interface4928.lean:29:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [edgeOn] at neg
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'Features4928.interfaceClassification' depends on axioms: [propext, Classical.choice, Quot.sound]

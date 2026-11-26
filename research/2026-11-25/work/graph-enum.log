@@ -1,0 +1,32 @@
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+PEqualNP/Outside/L_meta_612.lean:120:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+PEqualNP/Outside/L_meta_612.lean:117:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PEqualNP/Outside/L_meta_612.lean:204:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Finset.toList', which is 'noncomputable'
+PEqualNP/Outside/L_meta_612.lean:274:6: error: Tactic `rfl` failed: The left-hand side
+  FreeMeet bank w ∨ ∃ x, FreeMeet bank x ∧ ∃ x_1, FreeMeet bank x_1 ∧ Reach (insert (x ∪ x_1) bank) w (k + 1)
+is not definitionally equal to the right-hand side
+  Reach bank w (k + 1 + 1)
+
+case succ.succ
+α : Type
+inst✝¹ : Fintype α
+inst✝ : DecidableEq α
+w : Finset α
+bank : Finset (Finset α)
+k : ℕ
+ih : ∀ (bank : Finset (Finset α)), searchOr bank w (k + 1) = true ↔ Reach bank w (k + 1)
+⊢ (FreeMeet bank w ∨ ∃ x, FreeMeet bank x ∧ ∃ x_1, FreeMeet bank x_1 ∧ Reach (insert (x ∪ x_1) bank) w (k + 1)) ↔
+    Reach bank w (k + 1 + 1)
+PEqualNP/Outside/L_meta_612.lean:278:8: warning: declaration uses `sorry`

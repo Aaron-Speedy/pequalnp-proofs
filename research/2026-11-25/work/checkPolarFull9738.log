@@ -1,0 +1,22 @@
+'PEqualNP.Outside.Plane9738.sharedLower' depends on axioms: [propext, Classical.choice, Quot.sound]
+../.pnp/PolarLower9738.lean:14:20: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/PolarLower9738.lean:58:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/PolarLower9738.lean:72:46: error: Tactic `assumption` failed
+
+case mpr.refine_1
+C : Circuit
+ok : GraphOK C
+x : Fin 26 → Bool
+ev : (swap (ext (B C))).eval (List.ofFn x) = (ext (B C)).eval (List.ofFn (x ∘ phi))
+p l : Fin 13
+r : I p l
+hp : x (Fin.castAdd 13 p) = true
+hl : x (Fin.natAdd 13 l) = true
+⊢ x (l.addNat 13) = true
+'PEqualNP.Outside.Plane9738.sharedLeft' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

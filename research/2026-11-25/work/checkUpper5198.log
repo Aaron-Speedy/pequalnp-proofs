@@ -1,0 +1,31 @@
+../.pnp/Upper5198.lean:245:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../.pnp/Upper5198.lean:245:2: warning: Unused tactic linter: there are no goals left for `all_goals ac_rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/Upper5198.lean:250:27: error: failed to elaborate eliminator, insufficient number of arguments, expected type:
+  Fin 26 → Bool
+../.pnp/Upper5198.lean:250:76: error: Type mismatch
+  decide (l ∈ L)
+has type
+  Bool
+but is expected to have type
+  ?m.42 (Fin.natAdd 13 l)
+../.pnp/Upper5198.lean:263:4: error: `simp` made no progress
+../.pnp/Upper5198.lean:267:31: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+../.pnp/Upper5198.lean:267:63: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+../.pnp/Upper5198.lean:278:83: error: failed to synthesize
+  Decidable
+    (Monotone2 C ∧
+      ReadsBack 26 C ∧
+        C.size = 63 ∧
+          ∀ j ∈ Finset.range C.size,
+            (gateAt C j).op = GateOp.and → ∀ i ∈ (gateAt C j).inputs, 26 ≤ i → (gateAt C (i - 26)).op ≠ GateOp.and)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'PEqualNP.Outside.Upper5198.negative' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

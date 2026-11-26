@@ -1,0 +1,10 @@
+../.pnp/SharedFork4126.lean:71:48: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SharedFork4126.lean:71:52: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/SharedFork4126.lean:71:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+'LocalFano4126.sharedForkFloor' depends on axioms: [propext, Classical.choice, Quot.sound]

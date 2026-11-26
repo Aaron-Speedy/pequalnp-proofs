@@ -1,0 +1,3 @@
+'Marked5208.geometry_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Marked5208.wellFormed' depends on axioms: [propext, Quot.sound]
+'Marked5208.witness66' depends on axioms: [propext, Classical.choice, Quot.sound]

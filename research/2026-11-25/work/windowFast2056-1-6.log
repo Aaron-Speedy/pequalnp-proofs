@@ -1,0 +1,14 @@
+mode 1 gates 64 positive 52 maximal negative 704
+root 78 checked 4
+root 79 checked 8
+root 80 checked 12
+root 81 checked 16
+root 82 checked 20
+root 83 checked 24
+root 84 checked 54
+root 85 checked 84
+root 86 checked 114
+root 87 checked 190
+root 88 checked 226
+root 89 checked 320
+exhausted 320 windows of 6 gates

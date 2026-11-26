@@ -1,0 +1,1 @@
+'Local5060.transversalHasEdge' depends on axioms: [propext, Classical.choice, Quot.sound]

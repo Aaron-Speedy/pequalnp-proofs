@@ -1,0 +1,7 @@
+../.pnp/MergeWire4928.lean:38:16: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/MergeWire4928.lean:38:16: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'Local4928.erasedEval' depends on axioms: [propext, Classical.choice, Quot.sound]

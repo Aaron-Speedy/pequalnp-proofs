@@ -1,0 +1,9 @@
+mode 0 gates 64 positive 52 maximal negative 704
+mode 1 gates 64 positive 52 maximal negative 704
+mode 2 gates 64 positive 52 maximal negative 704
+mode 3 gates 64 positive 52 maximal negative 704
+mode 0 gates 64 positive 52 maximal negative 704
+mode 1 gates 64 positive 52 maximal negative 704
+mode 2 gates 64 positive 52 maximal negative 704
+mode 3 gates 64 positive 52 maximal negative 704
+pool 2080 exact pairs 8112 distinct factorizations 157 best 64

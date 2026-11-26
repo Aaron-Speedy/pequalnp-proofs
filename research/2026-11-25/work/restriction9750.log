@@ -1,0 +1,72 @@
+../.pnp/Restriction9750.lean:116:45: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/Restriction9750.lean:118:47: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/Restriction9750.lean:148:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/Restriction9750.lean:149:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/Restriction9750.lean:165:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/Restriction9750.lean:166:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/Restriction9750.lean:186:5: warning: Variable name `hX` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hX
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../.pnp/Restriction9750.lean:286:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/Restriction9750.lean:288:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/Restriction9750.lean:387:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../.pnp/Restriction9750.lean:397:26: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+../.pnp/Restriction9750.lean:403:26: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+../.pnp/Restriction9750.lean:593:31: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [f4, fSmall, projection]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/Restriction9750.lean:586:182: warning: Unused tactic linter: there are no goals left for `try rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/Restriction9750.lean:587:182: warning: Unused tactic linter: there are no goals left for `try rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/Restriction9750.lean:588:179: warning: Unused tactic linter: there are no goals left for `try rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/Restriction9750.lean:589:179: warning: Unused tactic linter: there are no goals left for `try rfl`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../.pnp/Restriction9750.lean:594:4: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

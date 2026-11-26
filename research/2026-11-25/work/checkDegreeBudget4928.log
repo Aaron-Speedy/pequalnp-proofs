@@ -1,0 +1,13 @@
+../.pnp/DegreeBudget4928.lean:31:45: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../.pnp/DegreeBudget4928.lean:54:12: error: Invalid field notation: `List.Nodup.sublist` has a parameter with expected type
+  List.Nodup ?l₂
+but it cannot be used
+
+Note: The parameter cannot be referred to by name because that function has a preceding parameter of the same name
+
+Hint: Consider rewriting this application without field notation (e.g., `C.f x` instead of `x.f`) or changing the parameter names of the function to avoid this conflict
+../.pnp/DegreeBudget4928.lean:55:6: error: No goals to be solved
+'Local4928.readOnceBudget' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

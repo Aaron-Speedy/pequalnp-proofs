@@ -1,0 +1,47 @@
+../.pnp/ClassOr2056.lean:22:64: error: unsolved goals
+a b : Fin 9
+s : ℕ
+D : Circuit
+ok : Monotone2 D
+sz : D.size ≤ s
+ev : ∀ (x : Fin 9 → Bool), D.eval (List.ofFn (ext a b x)) = f0 x
+g : Gate := { op := GateOp.or, inputs := [↑a, ↑b] }
+C : Circuit := { gates := g :: D.gates, output := D.output }
+x : Fin 9 → Bool
+⊢ x 1 = Fin.snoc x (x a || x b) 1 ∧
+    x 2 = Fin.snoc x (x a || x b) 2 ∧
+      x 3 = Fin.snoc x (x a || x b) 3 ∧
+        x 4 = Fin.snoc x (x a || x b) 4 ∧
+          x 5 = Fin.snoc x (x a || x b) 5 ∧
+            x 6 = Fin.snoc x (x a || x b) 6 ∧
+              x 7 = Fin.snoc x (x a || x b) 7 ∧
+                x 8 = Fin.snoc x (x a || x b) 8 ∧
+                  ([x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8][↑a] ||
+                      [x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8][↑b]) =
+                    Fin.snoc x (x a || x b) 9
+../.pnp/ClassOr2056.lean:24:64: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ext, step, g, GateOp.eval, List.getD_eq_getElem?_getD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../.pnp/ClassOr2056.lean:40:55: error: unsolved goals
+case refine_1
+a b : Fin 9
+s : ℕ
+σ : Fin 9 → Fin 9
+symm : ∀ (x : Fin 9 → Bool), f0 (x ∘ σ) = f0 x
+C : Circuit
+m : Monotone2 C
+sz : C.size ≤ s
+ev : ∀ (x : Fin 9 → Bool), C.eval (List.ofFn (ext a b x)) = f0 x
+ρ : Fin 10 → Fin 10 := Fin.snoc (fun j => (σ j).castSucc) (Fin.last 9)
+D : Circuit
+dm : Monotone2 D
+ds : D.size ≤ s
+de : ∀ (x : Fin 10 → Bool), D.eval (List.ofFn x) = (fun x => C.eval (List.ofFn (x ∘ ρ))) x
+x : Fin 9 → Bool
+i : Fin 10
+⊢ Fin.snoc x (x (σ a) || x (σ b)) (Fin.snoc (fun j => (σ j).castSucc) 9 9) =
+    Fin.snoc (fun x_1 => x (σ x_1)) (x (σ a) || x (σ b)) 9

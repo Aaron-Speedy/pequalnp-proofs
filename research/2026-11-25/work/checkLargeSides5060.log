@@ -1,0 +1,1 @@
+'Local5060.twoLargeSides' depends on axioms: [propext, Classical.choice, Quot.sound]

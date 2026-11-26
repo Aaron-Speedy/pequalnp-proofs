@@ -1,0 +1,1 @@
+'LocalPack5060.loc_triple_spare' depends on axioms: [propext, Classical.choice, Quot.sound]

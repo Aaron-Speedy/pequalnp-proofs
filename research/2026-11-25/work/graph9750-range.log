@@ -1,0 +1,4 @@
+../.pnp/Graph9750Range.lean:10:2: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'PEqualNP.Outside.Signed9750.negationRange' depends on axioms: [propext, Classical.choice, Quot.sound]

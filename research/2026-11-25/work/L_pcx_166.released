@@ -1,0 +1,387 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_pcx_166_aux
+open PEqualNP.ProofComplexity
+
+abbrev V := Fin 5 × Fin 4
+abbrev C := Clause V
+abbrev Edge := C × C × C
+
+theorem satResolve {a : V → Bool} {P N R : C} {v : V}
+    (hR : R = P.erase (v, true) ∪ N.erase (v, false))
+    (hP : ClauseSat a P) (hN : ClauseSat a N) : ClauseSat a R := by
+  obtain ⟨p, hp, hpa⟩ := hP
+  by_cases h : p = (v, true)
+  · subst p
+    obtain ⟨n, hn, hna⟩ := hN
+    have hn' : n ≠ (v, false) := by
+      intro e
+      subst n
+      change a v = false at hna
+      change a v = true at hpa
+      simp [hpa] at hna
+    refine ⟨n, ?_, hna⟩
+    rw [hR]
+    exact Finset.mem_union_right _ (Finset.mem_erase.mpr ⟨hn', hn⟩)
+  · refine ⟨p, ?_, hpa⟩
+    rw [hR]
+    exact Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨h, hp⟩)
+
+def Boundary (T : Finset Edge) (S : Set C) (Q : C) : Prop :=
+  ∃ P N, (P, N, Q) ∈ T ∧ (P ∈ S ∨ N ∈ S)
+
+def Covers (π : List C) (A : Finset C) (T : Finset Edge) : Prop :=
+  ∀ (S : Set C) (a : V → Bool),
+    (∀ B ∈ A, B ∉ S → ClauseSat a B) →
+    (∀ Q, Boundary T S Q → Q ∉ S → ClauseSat a Q) →
+    ∀ Q ∈ π, Q ∉ S → ClauseSat a Q
+
+theorem collect {F : Set C} {π : List C} (h : IsDerivation F π) :
+    ∃ (A : Finset C) (T : Finset Edge), A.card + T.card ≤ π.length ∧
+      (∀ B ∈ A, B ∈ F) ∧ (∀ e ∈ T, IsResolvent e.1 e.2.1 e.2.2) ∧ Covers π A T := by
+  classical
+  induction h with
+  | nil => exact ⟨∅, ∅, by simp, by simp, by simp, by simp [Covers]⟩
+  | @ax π B _ hB ih =>
+    obtain ⟨A, T, bound, valid, steps, cover⟩ := ih
+    refine ⟨insert B A, T, ?_, ?_, steps, ?_⟩
+    · have := Finset.card_insert_le B A
+      simp only [List.length_cons]
+      omega
+    · intro D hd
+      rcases Finset.mem_insert.mp hd with rfl | h
+      · exact hB
+      · exact valid _ h
+    · intro S a hax hb Q hQ hout
+      rcases List.mem_cons.mp hQ with rfl | hm
+      · exact hax _ (by simp) hout
+      · exact cover S a (fun D hd => hax D (Finset.mem_insert_of_mem hd)) hb Q hm hout
+  | @res π P N R _ hp hn hr ih =>
+    obtain ⟨A, T, bound, valid, steps, cover⟩ := ih
+    refine ⟨A, insert (P,N,R) T, ?_, valid, ?_, ?_⟩
+    · have := Finset.card_insert_le (P,N,R) T
+      simp only [List.length_cons]
+      omega
+    · intro e he
+      rcases Finset.mem_insert.mp he with rfl | hm
+      · exact hr
+      · exact steps _ hm
+    · intro S a hax hb Q hQ hout
+      have prior := cover S a hax (fun q ⟨p,n,hmem,hs⟩ hq =>
+        hb q ⟨p,n,Finset.mem_insert_of_mem hmem,hs⟩ hq)
+      rcases List.mem_cons.mp hQ with rfl | hm
+      · by_cases hits : P ∈ S ∨ N ∈ S
+        · exact hb _ ⟨P,N,Finset.mem_insert_self _ _,hits⟩ hout
+        · obtain ⟨v,_,_,eqn⟩ := hr
+          exact satResolve eqn (prior P hp (fun h => hits (Or.inl h)))
+            (prior N hn (fun h => hits (Or.inr h)))
+      · exact prior Q hm hout
+
+theorem cutNecessary {F : Set C} {π : List C} (h : IsRefutation F π) :
+    ∃ (A : Finset C) (T : Finset Edge), A.card + T.card ≤ π.length ∧
+      (∀ B ∈ A, B ∈ F) ∧ (∀ e ∈ T, IsResolvent e.1 e.2.1 e.2.2) ∧
+      ∀ (S : Set C) (a : V → Bool), (∅ : C) ∉ S →
+        (∀ B ∈ A, B ∉ S → ClauseSat a B) →
+        ∃ R, Boundary T S R ∧ R ∉ S ∧ ¬ ClauseSat a R := by
+  classical
+  obtain ⟨A,T,bound,valid,steps,cover⟩ := collect h.1
+  refine ⟨A,T,bound,valid,steps,?_⟩
+  intro S a hout hax
+  by_contra! hno
+  have bad := cover S a hax hno ∅ h.2 hout
+  simpa [ClauseSat] using bad
+
+theorem criticalCuts {F : Set C} {π : List C} (h : IsRefutation F π) :
+    ∃ (A : Finset C) (T : Finset Edge), A.card + T.card ≤ π.length ∧
+      (∀ B ∈ A, B ∈ F) ∧ (∀ e ∈ T, IsResolvent e.1 e.2.1 e.2.2) ∧
+      ∀ (B : C) (a : V → Bool), B ≠ ∅ →
+        (∀ D ∈ F, D ≠ B → ClauseSat a D) →
+        (∃ Q, Boundary T {B} Q ∧ ¬ ClauseSat a Q) ∧
+        ∀ l ∈ B, ∃ P N R, (P, N, R) ∈ T ∧
+          (l.1, true) ∈ P ∧ (l.1, false) ∈ N ∧
+          R = P.erase (l.1, true) ∪ N.erase (l.1, false) ∧ ¬ ClauseSat a R := by
+  classical
+  obtain ⟨A,T,bound,valid,steps,cut⟩ := cutNecessary h
+  refine ⟨A,T,bound,valid,steps,?_⟩
+  intro B a hne hcrit
+  constructor
+  · obtain ⟨Q,hQ,_,hf⟩ := cut {B} a (by simpa using Ne.symm hne)
+      (fun D hd hout => hcrit D (valid D hd) (by simpa using hout))
+    exact ⟨Q,hQ,hf⟩
+  · intro l hl
+    obtain ⟨R,⟨P,N,edge,side⟩,hout,hfalse⟩ :=
+      cut {D | l ∈ D} a (by simp)
+        (fun D hd hout => hcrit D (valid D hd) (fun eq => hout (eq ▸ hl)))
+    obtain ⟨v,hp,hn,eq⟩ := steps _ edge
+    change R = P.erase (v, true) ∪ N.erase (v, false) at eq
+    have hv : l.1 = v := by
+      by_contra hne'
+      apply hout
+      change l ∈ R
+      rw [eq]
+      rcases side with hleft | hright
+      · exact Finset.mem_union_left _ (Finset.mem_erase.mpr
+          ⟨fun he => hne' (congrArg Prod.fst he), hleft⟩)
+      · exact Finset.mem_union_right _ (Finset.mem_erase.mpr
+          ⟨fun he => hne' (congrArg Prod.fst he), hright⟩)
+    exact ⟨P,N,R,edge,hv ▸ hp,hv ▸ hn,hv ▸ eq,hfalse⟩
+
+def JointSat (samples : Set (V → Bool)) (Q : C) : Prop :=
+  ∃ a ∈ samples, ClauseSat a Q
+
+theorem jointResolve {samples : Set (V → Bool)} {P N R : C} {v : V}
+    (he : R = P.erase (v,true) ∪ N.erase (v,false))
+    (fixed : ∀ a ∈ samples, ∀ b ∈ samples, a v = b v)
+    (hp : JointSat samples P) (hn : JointSat samples N) : JointSat samples R := by
+  obtain ⟨a,ha,l,hl,hs⟩ := hp
+  by_cases h : l = (v,true)
+  · subst l
+    obtain ⟨b,hb,m,hm,ht⟩ := hn
+    have hv : b v = true := (fixed b hb a ha).trans hs
+    have hne : m ≠ (v,false) := by
+      rintro rfl
+      change b v = false at ht
+      simp [hv] at ht
+    exact ⟨b,hb,m,he ▸ Finset.mem_union_right _ (Finset.mem_erase.mpr ⟨hne,hm⟩),ht⟩
+  · exact ⟨a,ha,l,he ▸ Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨h,hl⟩),hs⟩
+
+def SplitStep (samples : Set (V → Bool)) (v : V) (R : C) : Prop :=
+  (∃ a ∈ samples, ∃ b ∈ samples, a v ≠ b v) ∧ ¬ JointSat samples R
+
+theorem sampleBound {F : Set C} {π : List C} (h : IsDerivation F π) :
+    ∃ (A : Finset C) (T : Finset (V × C)), A.card + T.card ≤ π.length ∧
+      (∀ B ∈ A, B ∈ F) ∧
+      ∀ (samples : Set (V → Bool)), (∀ B ∈ A, JointSat samples B) →
+        (∀ e ∈ T, ¬ SplitStep samples e.1 e.2) → ∀ Q ∈ π, JointSat samples Q := by
+  classical
+  induction h with
+  | nil => exact ⟨∅,∅,by simp,by simp,by simp⟩
+  | @ax π B _ hB ih =>
+    obtain ⟨A,T,bound,valid,ih⟩ := ih
+    refine ⟨insert B A,T,?_,?_,?_⟩
+    · have := Finset.card_insert_le B A
+      simp only [List.length_cons]; omega
+    · intro D hd
+      rcases Finset.mem_insert.mp hd with rfl | hm
+      · exact hB
+      · exact valid _ hm
+    · intro samples hA hT Q hQ
+      rcases List.mem_cons.mp hQ with rfl | hm
+      · exact hA _ (Finset.mem_insert_self _ _)
+      · exact ih samples (fun D hd => hA D (Finset.mem_insert_of_mem hd)) hT Q hm
+  | @res π P N R _ hP hN hr ih =>
+    obtain ⟨A,T,bound,valid,ih⟩ := ih
+    obtain ⟨v,_,_,eq⟩ := hr
+    refine ⟨A,insert (v,R) T,?_,valid,?_⟩
+    · have := Finset.card_insert_le (v,R) T
+      simp only [List.length_cons]; omega
+    · intro samples hA hT Q hQ
+      have prior := ih samples hA (fun e he => hT e (Finset.mem_insert_of_mem he))
+      rcases List.mem_cons.mp hQ with rfl | hm
+      · by_contra bad
+        have nosplit := hT (v,Q) (Finset.mem_insert_self _ _)
+        have fixed : ∀ a ∈ samples, ∀ b ∈ samples, a v = b v := by
+          intro a ha b hb
+          by_contra ne
+          exact nosplit ⟨⟨a,ha,b,hb,ne⟩,bad⟩
+        exact bad (jointResolve eq fixed (prior P hP) (prior N hN))
+      · exact prior Q hm
+
+namespace Prefix
+abbrev Row := Fin 5
+abbrev Hole := Fin 4
+abbrev V := Row × Hole
+abbrev C := Clause V
+
+def rowAx (i : Row) (J : Finset Hole) : C := J.image (fun j => ((i, j), true))
+
+def colAx (i k : Row) (j : Hole) : C := {((i, j), false), ((k, j), false)}
+
+def Collision (I : Finset Row) (J : Finset Hole) (N : C) : Prop :=
+  ∃ i ∈ I, ∃ k ∈ I, ∃ j ∈ J, i ≠ k ∧ N = colAx i k j
+
+abbrev Coll (N : C) : Prop := Collision Finset.univ Finset.univ N
+
+def NegsIn (S : Finset V) (R : C) : Prop :=
+  ∀ v : V, (v, false) ∈ R → v ∈ S
+
+def Hits (S : Finset V) (R : C) : Prop :=
+  ∃ v : V, (v, false) ∈ R ∧ v ∈ S
+
+def SatOn (a : V → Bool) (A : Finset C) : Prop :=
+  ∀ R ∈ A, R ∈ PHP 5 4 → ClauseSat a R
+
+def Absorbs (π : List C) (A : Finset C) : Prop :=
+  ∀ a : V → Bool, SatOn a A → ∀ R ∈ π, ClauseSat a R
+
+def Controls (π : List C) (U : Finset C) (S : Finset V) : Prop :=
+  ∀ (U' : Finset C) (S' : Finset V), U ⊆ U' → S ⊆ S' →
+  ∀ a : V → Bool, (∀ B ∈ PHP 5 4, ¬ Coll B → ClauseSat a B) →
+    (∀ B ∈ U', Coll B → Hits S' B → ClauseSat a B) →
+    ∀ R ∈ π, ¬ Coll R → NegsIn S' R → ClauseSat a R
+
+theorem satResolve {a : V → Bool} {P N R : C} {v : V}
+    (hR : R = P.erase (v, true) ∪ N.erase (v, false))
+    (hP : ClauseSat a P) (hN : ClauseSat a N) : ClauseSat a R := by
+  obtain ⟨p, hp, hpa⟩ := hP
+  by_cases h : p = (v, true)
+  · subst p
+    obtain ⟨n, hn, hna⟩ := hN
+    have hn' : n ≠ (v, false) := by
+      intro e
+      subst n
+      change a v = false at hna
+      change a v = true at hpa
+      simp [hpa] at hna
+    refine ⟨n, ?_, hna⟩
+    rw [hR]
+    exact Finset.mem_union_right _ (Finset.mem_erase.mpr ⟨hn', hn⟩)
+  · refine ⟨p, ?_, hpa⟩
+    rw [hR]
+    exact Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨h, hp⟩)
+
+theorem collisionNoPos {N : C} (hN : Coll N) (v : V) : (v, true) ∉ N := by
+  obtain ⟨i, _, k, _, j, _, _, rfl⟩ := hN
+  simp [colAx]
+
+theorem collisionOther {N : C} {v : V} (hN : Coll N) (hv : (v, false) ∈ N) :
+    ∃ u : V, u ≠ v ∧ (u, false) ∈ N := by
+  obtain ⟨i, _, k, _, j, _, hik, rfl⟩ := hN
+  have hv' : v = (i, j) ∨ v = (k, j) := by simpa [colAx] using hv
+  rcases hv' with rfl | rfl
+  · exact ⟨(k, j), fun e => hik (congrArg Prod.fst e).symm, by simp [colAx]⟩
+  · exact ⟨(i, j), fun e => hik (congrArg Prod.fst e), by simp [colAx]⟩
+
+theorem collisionNonempty {N : C} (hN : Coll N) : N ≠ ∅ := by
+  obtain ⟨i, _, k, _, j, _, _, rfl⟩ := hN
+  simp [colAx]
+
+theorem negLeft {v : V} {P N R : C}
+    (hR : R = P.erase (v, true) ∪ N.erase (v, false)) {u : V} (hu : (u, false) ∈ P) :
+    (u, false) ∈ R := by
+  rw [hR]
+  exact Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨by simp, hu⟩)
+
+theorem negRight {v : V} {P N R : C}
+    (hR : R = P.erase (v, true) ∪ N.erase (v, false)) {u : V} (hu : (u, false) ∈ N)
+    (hne : u ≠ v) : (u, false) ∈ R := by
+  rw [hR]
+  exact Finset.mem_union_right _ (Finset.mem_erase.mpr ⟨by simpa using hne, hu⟩)
+
+theorem controlStep {π : List C} {U : Finset C} {S : Finset V} {v : V} {P N R : C}
+    (h : Controls π U S) (hP : P ∈ π) (hN : N ∈ π)
+    (hp : (v, true) ∈ P) (hn : (v, false) ∈ N)
+    (hR : R = P.erase (v, true) ∪ N.erase (v, false)) :
+    ∀ (U' : Finset C) (S' : Finset V), U ⊆ U' → S ⊆ S' →
+    (Coll N → N ∈ U') → (¬ Coll N → v ∈ S') →
+    ∀ a : V → Bool, (∀ B ∈ PHP 5 4, ¬ Coll B → ClauseSat a B) →
+      (∀ B ∈ U', Coll B → Hits S' B → ClauseSat a B) →
+      ∀ Q ∈ R :: π, ¬ Coll Q → NegsIn S' Q → ClauseSat a Q := by
+  classical
+  intro U' S' hU hS hmark hpivot a hrows hcols Q hQ hnQ hneg
+  have ih := h U' S' hU hS a hrows hcols
+  rcases List.mem_cons.mp hQ with rfl | hQ
+  · have sP : ClauseSat a P :=
+      ih P hP (fun hcol => collisionNoPos hcol v hp) (fun u hu => hneg u (negLeft hR hu))
+    have sN : ClauseSat a N := by
+      by_cases hcol : Coll N
+      · obtain ⟨u, huv, hu⟩ := collisionOther hcol hn
+        exact hcols N (hmark hcol) hcol ⟨u, hu, hneg u (negRight hR hu huv)⟩
+      · refine ih N hN hcol (fun u hu => ?_)
+        by_cases hu' : u = v
+        · simpa [hu'] using hpivot hcol
+        · exact hneg u (negRight hR hu hu')
+    exact satResolve hR sP sN
+  · exact ih Q hQ hnQ hneg
+
+theorem collect {π : List C} (h : IsDerivation (PHP 5 4) π) :
+    ∃ (A U : Finset C) (S : Finset V), A.card + U.card + S.card ≤ π.length ∧
+      Absorbs π A ∧ Controls π U S := by
+  classical
+  induction h with
+  | nil =>
+    refine ⟨∅, ∅, ∅, by simp, ?_, ?_⟩
+    · simp [Absorbs]
+    · simp [Controls]
+  | @ax π R _ hR ih =>
+    obtain ⟨A, U, S, hbudget, hs, hc⟩ := ih
+    refine ⟨insert R A, U, S, ?_, ?_, ?_⟩
+    · have := Finset.card_insert_le R A
+      simp only [List.length_cons]
+      omega
+    · intro a ha Q hQ
+      rcases List.mem_cons.mp hQ with hEq | hQ
+      · subst Q
+        exact ha R (Finset.mem_insert_self _ _) hR
+      · exact hs a (fun B hB hB' => ha B (Finset.mem_insert_of_mem hB) hB') Q hQ
+    · intro U' S' hU hS a hrows hcols Q hQ hnc hneg
+      rcases List.mem_cons.mp hQ with hEq | hQ
+      · subst Q
+        exact hrows R hR hnc
+      · exact hc U' S' hU hS a hrows hcols Q hQ hnc hneg
+  | @res π P N R _ hP hN hR ih =>
+    obtain ⟨v, hp, hn, heq⟩ := hR
+    obtain ⟨A, U, S, hbudget, hs, hc⟩ := ih
+    have ha : Absorbs (R :: π) A := by
+      intro a hA Q hQ
+      rcases List.mem_cons.mp hQ with rfl | hQ
+      · exact satResolve heq (hs a hA P hP) (hs a hA N hN)
+      · exact hs a hA Q hQ
+    have hstep := controlStep hc hP hN hp hn heq
+    by_cases hm : Coll N
+    · refine ⟨A, insert N U, S, ?_, ha, ?_⟩
+      · have := Finset.card_insert_le N U
+        simp only [List.length_cons]
+        omega
+      · intro U' S' hU hS
+        exact hstep U' S' ((Finset.subset_insert N U).trans hU) hS
+          (fun _ => hU (Finset.mem_insert_self _ _)) (fun h => (h hm).elim)
+    · refine ⟨A, U, insert v S, ?_, ha, ?_⟩
+      · have := Finset.card_insert_le v S
+        simp only [List.length_cons]
+        omega
+      · intro U' S' hU hS
+        exact hstep U' S' hU ((Finset.subset_insert v S).trans hS)
+          (fun h => (hm h).elim) (fun _ => hS (Finset.mem_insert_self _ _))
+
+
+def Needs (B R : C) : Prop :=
+  ∃ a : V → Bool, (∀ D ∈ PHP 5 4, D ≠ B → ClauseSat a D) ∧ ¬ ClauseSat a R
+
+def negVars (R : C) : Finset V := Finset.univ.filter (fun v => (v,false) ∈ R)
+
+theorem prefixCounts {π : List C} {R : C} (hd : IsDerivation (PHP 5 4) π)
+    (hr : R ∈ π) (hnc : ¬ Coll R) :
+    ∃ (A U : Finset C) (S : Finset V), A.card + U.card + S.card ≤ π.length ∧
+      (∀ B, Needs B R → B ∈ A) ∧
+      ∀ B, Coll B → Needs B R → B ∈ U ∧ Hits (S ∪ negVars R) B := by
+  classical
+  obtain ⟨A,U,S,bound,ha,hc⟩ := collect hd
+  refine ⟨A,U,S,bound,?_,?_⟩
+  · intro B hneed
+    obtain ⟨a,rest,hfalse⟩ := hneed
+    by_contra hm
+    apply hfalse
+    exact ha a (fun D hmD hf => rest D hf (fun eq => hm (eq ▸ hmD))) _ hr
+  · intro B hB hneed
+    obtain ⟨a,rest,hfalse⟩ := hneed
+    by_contra hm
+    have hrows : ∀ D ∈ PHP 5 4, ¬ Coll D → ClauseSat a D :=
+      fun D hf hn => rest D hf (fun eq => hn (eq ▸ hB))
+    have hcols : ∀ D ∈ U, Coll D → Hits (S ∪ negVars R) D → ClauseSat a D := by
+      intro D hd hc' hit
+      obtain ⟨i,_,k,_,j,_,hne,eq⟩ := hc'
+      apply rest D (Or.inr ⟨i,k,j,hne,eq⟩)
+      rintro rfl
+      exact hm ⟨hd,hit⟩
+    apply hfalse
+    apply hc U (S ∪ negVars R) (fun _ h => h) Finset.subset_union_left a hrows hcols R hr hnc
+    intro v hv
+    exact Finset.mem_union_right _ (Finset.mem_filter.mpr ⟨Finset.mem_univ _,hv⟩)
+
+end Prefix
+end PEqualNP.Outside.L_pcx_166_aux
+
+theorem PEqualNP.Outside.L_pcx_166 : (¬ (∃ π : List (PEqualNP.ProofComplexity.Clause (Fin 5 × Fin 4)), PEqualNP.ProofComplexity.IsRefutation (PEqualNP.ProofComplexity.PHP 5 4) π ∧ π.length ≤ 129)) := by
+  sorry

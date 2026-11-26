@@ -1,0 +1,2 @@
+'Marked5208.allTerms' depends on axioms: [propext, Classical.choice, Quot.sound]
+Terminated                 lean --root=../.pnp -j 1 -M 9000 -o ../.pnp/TableWitness5208.olean ../.pnp/TableWitness5208.lean

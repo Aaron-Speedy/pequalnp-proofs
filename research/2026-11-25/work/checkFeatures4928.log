@@ -1,0 +1,1 @@
+'Features4928.rigid' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,1 @@
+'PEqualNP.Outside.Boxes9738.boxFormula' depends on axioms: [propext, Classical.choice, Quot.sound]

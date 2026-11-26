@@ -1,0 +1,22 @@
+theorem separatedRows {α : Type} [Fintype α] [DecidableEq α]
+    {bank : Finset (Finset α)} {w : Finset α} {k : ℕ} (h : Reach bank w k)
+    (sep : ∀ a ∈ w, ∀ b ∈ w, a ≠ b → ¬ hull bank {a,b} ⊆ w) :
+    w.card ≤ 2 ^ k := by
+  classical
+  obtain ⟨ts,bd,free,eq⟩ := coverByMeets h
+  have sub : ∀ z ∈ ts, z ⊆ w := by
+    intro z hz r hr
+    rw [← eq]
+    exact Finset.mem_biUnion.mpr ⟨z,hz,hr⟩
+  have limit : ∀ z ∈ ts, z.card ≤ 1 := by
+    intro z hz
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    by_contra ne
+    apply sep a (sub z hz ha) b (sub z hz hb) ne
+    exact (leastHull (free z hz) (by simpa using And.intro ha hb)).trans (sub z hz)
+  calc
+    w.card = (ts.biUnion id).card := congrArg Finset.card eq.symm
+    _ ≤ ∑ z ∈ ts, z.card := Finset.card_biUnion_le
+    _ ≤ ∑ _z ∈ ts, 1 := Finset.sum_le_sum limit
+    _ ≤ 2 ^ k := by simpa using bd

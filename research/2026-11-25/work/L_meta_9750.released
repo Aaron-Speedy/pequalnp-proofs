@@ -1,0 +1,5 @@
+import Mathlib
+import PEqualNP.Defs
+
+theorem PEqualNP.Outside.L_meta_9750 : (¬ (PEqualNP.MetaComplexity.HasCircuitSize 12 (fun x : Fin 12 → Bool => (x 0 && x 7) || (x 0 && x 11) || (x 1 && x 6) || (x 1 && x 10) || (x 1 && x 11) || (x 2 && x 9) || (x 2 && x 10) || (x 3 && x 8) || (x 3 && x 9) || (x 3 && x 11) || (x 4 && x 7) || (x 4 && x 8) || (x 4 && x 10) || (x 5 && x 6) || (x 5 && x 7) || (x 5 && x 9)) 20)) := by
+  sorry

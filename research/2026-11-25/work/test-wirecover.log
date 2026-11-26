@@ -1,0 +1,37 @@
+../.pnp/Testwirecover.lean:130:2: error: Type mismatch: After simplification, term
+  sensitivityBound sample C ok base hits sep
+ has type
+  n ≤ orCost C.gates + 1 + s.card
+but is expected to have type
+  sᶜ.card ≤ orCost C.gates + 1
+n
+  Finset.card_image_of_injective ?m.456 Option.some_injective
+../.pnp/Testwirecover.lean:97:71: error: unsolved goals
+n : ℕ
+ι : Type
+inst✝¹ : Fintype ι
+inst✝ : DecidableEq ι
+sample : Option ι → Fin n → Bool
+C : Circuit
+ok : MetaComplexity.Monotone2 C
+base : C.eval (List.ofFn (sample none)) = false
+hits : ∀ (i : ι), C.eval (List.ofFn (sample (some i))) = true
+disjoint :
+  ∀ (v : Fin n), sample none v = false → ∀ (a b : ι), sample (some a) v = true → sample (some b) v = true → a = b
+target : Finset (Option ι) := {r | C.eval (List.ofFn (sample r)) = true}
+run : Reach (inputBank sample) target (orCost C.gates)
+avoid : none ∉ target
+used : Finset (Finset (Option ι))
+inside : used ⊆ inputBank sample
+size : used.card ≤ orCost C.gates + 1
+miss : ∀ z ∈ used, none ∉ z
+all : target ⊆ used.biUnion id
+limit : ∀ z ∈ used, z.card ≤ 1
+lower : Finset.image some Finset.univ ⊆ used.biUnion id
+⊢ Fintype.card ι = (Finset.image some Finset.univ).card
+../.pnp/Testwirecover.lean:130:2: error: Type mismatch: After simplification, term
+  sensitivityBound sample C ok base hits sep
+ has type
+  n ≤ orCost C.gates + 1 + s.card
+but is expected to have type
+  sᶜ.card ≤ orCost C.gates + 1
